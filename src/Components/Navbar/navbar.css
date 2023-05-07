@@ -1,0 +1,199 @@
+.not {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 300px 4fr 1fr;
+    background-color: rgb(255, 255, 255);
+    transition: all 0.3s ease;
+    align-items: center;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+  }
+  
+  .sticky-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 300px 4fr 1fr;
+    background-color: white;
+    transition: all 0.2s ease;
+    align-items: center;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    width: 105px;
+    cursor: pointer;
+    height: 90px;
+  }
+  
+  .logo span {
+    font-size: 1.7rem;
+    font-weight: bold;
+  }
+  
+  .nav-links {
+    display: flex;
+    margin: 0 auto;
+  }
+  
+  .nav-links li a,
+  .nav-links li p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 5px 0;
+    margin: 0px 30px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .nav-links li a:is(:hover, :focus, :focus-visible) {
+    color: lightpink;
+    outline: none;
+  }
+  
+  .active {
+    transition: all 0.3s ease;
+  }
+  
+  .nav-links li a.active {
+    color: lightpink;
+  }
+  
+  .maintain a:is(:hover, :focus, :focus-visible) {
+    color: lightpink !important;
+    outline: none;
+  }
+  
+  .maintain a.active {
+    color: lightpink !important;
+  }
+  
+  .header-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-icons p {
+    margin-inline: 25px 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .header-icons p:is(:hover, :focus, :focus-visible) {
+    color: lightpink;
+    outline: none;
+  }
+  
+  .head-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .head-icons p {
+    margin-inline: 25px 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .head-icons p:is(:hover, :focus, :focus-visible) {
+    color: lightpink;
+    outline: none;
+  }
+  
+  .user {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .user i {
+    padding-right: 5px;
+  }
+  
+  #menu-icon {
+    display: none;
+  } 
+
+  .willhide {
+    display: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    /* hide desktop menu */
+    .nav-links {
+      display: none;
+    }
+    
+    /* show burger icon */
+    #menu-icon {
+      display: block;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2.5rem;
+      cursor: pointer;
+    }
+    
+    /* dropdown menu */
+    .willhide {
+      display: block;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: lightpink;
+      z-index: 9;
+      opacity: 0.95;
+    }
+    
+    .willhide ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    
+    .willhide li {
+      padding: 20px;
+      margin: 10px 0;
+      list-style: none;
+      text-align: center;
+    }
+    
+    .willhide li a {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .willhide li a:is(:hover, :focus, :focus-visible) {
+      color: lightpink;
+      outline: none;
+    }
+    
+    /* toggle active class */
+    .active {
+      transition: all 0.3s ease;
+    }
+    
+    .nav-links li a.active {
+      color: lightpink;
+    }
+  }
+  
