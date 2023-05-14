@@ -65,7 +65,7 @@ const ContactUs = () => {
     <>
       <div className="contact-us">
         <div className="primary">
-          <h1>Have Any Question?</h1>
+          <h1>Connect with us!</h1>
           <p>
             Our contact us form is the perfect way to reach out to us with any
             inquiries, comments, or concerns you may have, and we will make sure

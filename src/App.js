@@ -7,6 +7,8 @@ import Layout from "./Pages/layout.jsx";
 import Home from "./Components/Home/home";
 import Aboutus from "./Pages/Aboutus/aboutus";
 import ContactUs from "./Pages/Contactus/contactus";
+import Login from "./Components/Login/login";
+import Register from "./Components/Registration/register";
 
 
 
@@ -21,15 +23,15 @@ function App() {
 
           <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home/>}/>
+          <Route path="/login" element={<Login/>}/>
           <Route path="/shop" element={<Shop/>}/>
           <Route path="/aboutus" element={<Aboutus/>}/>
           <Route path="/contactus" element={<ContactUs/>}/>
-
-
-
-          
+          <Route path="/register" element={<Register/>}/>
           </Route>
+     
         </Routes>
+
       </BrowserRouter>
      
     </>

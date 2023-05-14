@@ -7,13 +7,14 @@ const Layout = () => {
 
   return (
     <>
-    <section className="mainer">
-         <main className="main">
-      <Navbar />
-      <Outlet/>
-      {location.pathname==="/login"?"":<Footer/>}
-</main>
-      </section>
+<section className="mainer">
+  <main className="main">
+    <Navbar />
+    <Outlet/>
+    {location.pathname === "/login" || location.pathname === "/register" ? null : <Footer/>}
+  </main>
+</section>
+
     </>
    
   )
