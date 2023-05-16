@@ -12,6 +12,7 @@
     margin-bottom: 2rem;
     color: lightpink;
     font-weight: 900;
+    text-align: center;
   }
   
   .form-login {
@@ -26,8 +27,8 @@
     margin-bottom: 1rem;
   }
   
-  .input-login[type="text"],
-  .input-login[type="password"] {
+  .input-login,
+  .input-login{
     padding: 0.5rem;
     font-size: 1.2rem;
     margin-bottom: 1rem;

@@ -12,7 +12,7 @@ function Aboutus() {
         <em className="em-aboutus">
           –Flowers are God’s finest creatures without souls–
         </em>
-        <p className="text-aboutus">
+        {/* <p className="text-aboutus">
           At <span className="span-aboutus">Fleur de vie</span>, we believe that
           flowers have the power to brighten any day and bring joy to any
           occasion. That's why we're passionate about crafting stunning
@@ -20,7 +20,7 @@ function Aboutus() {
           message. Whether you're celebrating a special milestone, expressing
           gratitude, or simply brightening up your own space, our expert
           florists are here to help.
-        </p>
+        </p> */}
 
         <p className="text-aboutus2">
           We're a family-owned business with a deep love for all things floral.

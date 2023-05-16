@@ -1,93 +1,9 @@
-/* .aboutus-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px;
-  margin-bottom: 0;
-}
-
-.aboutus-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 90%;
-}
-
-.aboutus-image {
-  width: 100%;
-  height: auto;
-  padding: 0 0 20px 0;
-}
-
-.title-aboutus {
-  font-size: 30px;
-  margin-bottom: 20px;
-  color: lightpink;
-  text-align: center;
-}
-
-.span-aboutus {
-  color: lightpink;
-  font-weight: 900;
-}
-
-.em-aboutus {
-  display: block;
-  font-style: italic;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.text-aboutus,
-.text-aboutus2,
-.text-aboutus3 {
-  font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 16px;
-  text-align: center;
-}
-
-.text-aboutus4 {
-  font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 0;
-  font-weight: 900;
-}
-
-/* Media queries */
-
-/* @media only screen and (min-width: 576px) {
-  .aboutus-wrapper {
-    margin-top: 50px;
-  }
-
-  .title-aboutus {
-    font-size: 36px;
-    margin-bottom: 30px;
-  }
-
-  .text-aboutus,
-  .text-aboutus2,
-  .text-aboutus3 {
-    font-size: 18px;
-    line-height: 1.5;
-    margin-bottom: 22px;
-  }
-
-  .text-aboutus4 {
-    font-size: 18px;
-    line-height: 1.5;
-    margin-bottom: 0;
-  }
-} */
- 
-
 .aboutus-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
+  /* height: 100%; */
   margin-bottom: 0;
   margin-top: 30px;
 }
@@ -102,7 +18,7 @@
 
 .text-container {
   flex: 1;
-  padding-right: 2rem;
+  /* padding-right: 2rem; */
 }
 
 .image-container {
@@ -110,7 +26,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 150px;
+  padding-top: 70px;
 }
 
 .aboutus-image {
@@ -123,16 +39,18 @@
 .text-aboutus3,
 .text-aboutus4 {
   line-height: 2;
+  font-size: 20px;
 }
 
 .text-aboutus4 {
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 0;
+  font-weight: 900;
 }
 
 .title-aboutus {
-  font-size: 30px;
+  font-size: 50px;
   margin-bottom: 20px;
   color: lightpink;
   text-align: center;
@@ -165,5 +83,13 @@
   .image-container {
     padding: 0;
   }
+
+  @media (max-width: 576px) {
+ 
+    .aboutus-image {
+    
+      height: 400px;
+    }
+}
 }
 
