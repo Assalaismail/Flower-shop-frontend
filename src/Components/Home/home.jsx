@@ -7,6 +7,7 @@ import image3 from "../../Assets/image3.jpg";
 import round1 from "../../Assets/sura.jpg";
 import round2 from "../../Assets/round2.jpg";
 import round3 from "../../Assets/sura2.jpg";
+import aboutus from "../../Assets/sura (3).png";
 
 function Home() {
   const [slideIndex, setSlideIndex] = useState(1);
@@ -74,8 +75,6 @@ function Home() {
         </ul>
       </div>
 
-
-
       <div className="daily-flowers">
         <div>
           <p className="daily-title">Daily Flowers</p>
@@ -90,9 +89,9 @@ function Home() {
         </div>
 
         <div className="daily-images">
-          <img src={round1} alt="Flower image" class="round-image" />
-          <img src={round2} alt="Flower image" class="round-image" />
-          <img src={round3} alt="Flower image" class="round-image1" />
+          <img src={round1} alt="Flower image" className="round-image" />
+          <img src={round2} alt="Flower image" className="round-image" />
+          <img src={round3} alt="Flower image" className="round-image1" />
         </div>
       </div>
 
@@ -113,7 +112,7 @@ function Home() {
 
       <div className="home-about-us">
         <div className="about-us-image">
-          <img src={round1} alt="Image Description" />
+          <img src={aboutus} alt="Image Description" />
         </div>
         <div className="about-us-content about-us-content-desktop">
           <p>

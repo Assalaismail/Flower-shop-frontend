@@ -60,21 +60,16 @@
     color: lightpink;
     outline: none;
   }
-  
   .active {
     transition: all 0.3s ease;
   }
-  
-  /* .nav-links li a.active {
-    color: lightpink;
-  } */
   
   .maintain a:is(:hover, :focus, :focus-visible) {
     color: white !important;
     outline: none;
   }
   
-  .maintain a.active {
+  .nav-links li a.active {
     color: lightpink !important;
   }
   
@@ -146,7 +141,7 @@
   
     .nav-links li a,
     .nav-links li p {
-      font-size: 0.8rem;
+      font-size: 1.1rem;
       padding: 5px 0;
       margin: 0px 20px;
     }
@@ -227,7 +222,11 @@
   
     .maintain a.active,
     .maintain p.active {
-      color: rgb(180, 28, 28) !important;
+      color:purple !important;
+    }
+    .nav-links li a:is(:hover, :focus, :focus-visible) {
+      color: whitesmoke;
+      outline: none;
     }
   }
   

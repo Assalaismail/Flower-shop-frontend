@@ -11,6 +11,7 @@
     padding-left: 75px;
     padding-right: 75px;
     padding-top: 10px;
+    border-radius: 10px;
     padding-bottom: 10px;
     box-shadow: 4px 2px 4px rgba(0.8, 0, 0, 0.5);
   }

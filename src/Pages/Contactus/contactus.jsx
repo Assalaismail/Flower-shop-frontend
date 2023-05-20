@@ -117,23 +117,21 @@ const ContactUs = () => {
             </div>
 
             <div className="google-map">
-              
-                <div className="map">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d700154.8364275048!2d34.763031620347284!3d34.04220159856187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f1793c2852b6d%3A0x4ae3841bff5dfd6!2sThe%20Flower%20Shop!5e0!3m2!1sen!2slb!4v1683400748185!5m2!1sen!2slb"
-                    width="600"
-                    height="450"
-                    style={{ border: 0 }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  ></iframe>
-                </div>
+              <div className="map">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d700154.8364275048!2d34.763031620347284!3d34.04220159856187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f1793c2852b6d%3A0x4ae3841bff5dfd6!2sThe%20Flower%20Shop!5e0!3m2!1sen!2slb!4v1683400748185!5m2!1sen!2slb"
+                  width="600"
+                  height="450"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </div>
           </div>
         </div>
-     
+      </div>
     </>
   );
 };

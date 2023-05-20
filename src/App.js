@@ -9,7 +9,8 @@ import Aboutus from "./Pages/Aboutus/aboutus";
 import ContactUs from "./Pages/Contactus/contactus";
 import Login from "./Components/Login/login";
 import Register from "./Components/Registration/register";
-
+import Category from "./Pages/Shop/category";
+import Single from "./Pages/Single/single";
 
 
 function App() {
@@ -24,10 +25,14 @@ function App() {
           <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home/>}/>
           <Route path="/login" element={<Login/>}/>
-          <Route path="/shop" element={<Shop/>}/>
+          <Route path="/shop" element={<Category/>}/>
+          <Route path="/shop/:category_id" element={<Shop />} />
+          <Route path="/single" element={<Single />} />
+
           <Route path="/aboutus" element={<Aboutus/>}/>
           <Route path="/contactus" element={<ContactUs/>}/>
           <Route path="/register" element={<Register/>}/>
+
           </Route>
      
         </Routes>
