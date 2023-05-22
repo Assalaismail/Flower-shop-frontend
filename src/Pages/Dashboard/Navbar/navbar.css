@@ -1,0 +1,151 @@
+.not-dash {
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 300px 4fr 1fr;
+    background-color: rgb(255, 255, 255);
+    transition: all 0.3s ease;
+    align-items: center;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+  }
+  
+  .sticky-header-dash {
+    width: 100%;
+    top: 30px;
+    z-index: 10;
+    display: flex;
+    background-color: white;
+    transition: all 0.2s ease;
+    align-items: center;
+  }
+  
+  .nav-links-dash {
+    display: flex;
+    margin: 0 auto;
+  }
+  
+  .nav-links-dash li a,
+  .nav-links-dash li p {
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 5px 0;
+    margin: 0px 30px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .nav-links-dash li a:is(:hover, :focus, :focus-visible) {
+    color: lightpink;
+    outline: none;
+  }
+  
+  .active {
+    transition: all 0.3s ease;
+  }
+  
+  .maintain a:is(:hover, :focus, :focus-visible) {
+    color: white !important;
+    outline: none;
+  }
+  
+  .nav-links-dash li a.active {
+    color: lightpink !important;
+  }
+  
+  .header-icons,
+  .head-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-icons p,
+  .head-icons p {
+    margin-inline: 25px 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .header-icons p:is(:hover, :focus, :focus-visible) {
+    color: purple;
+    outline: none;
+  }
+  
+  .head-icons p:is(:hover, :focus, :focus-visible) {
+    color: white;
+    outline: none;
+  }
+  
+  .user {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .user i {
+    padding-right: 5px;
+  }
+  
+  #menu-icon {
+    display: none;
+  }
+  
+  .willhide {
+    display: none;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 768px) {
+    .not-dash {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      padding: 10px;
+    }
+  
+    .sticky-header-dash {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .nav-links-dash {
+      flex-direction: column;
+      align-items: center;
+      display: none;
+    }
+  
+    .nav-links-dash.open {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .nav-links-dash li {
+      margin: 10px 0;
+    }
+  
+    .header-icons,
+    .head-icons {
+      margin-top: 20px;
+    }
+  
+    #menu-icon {
+      display: block;
+      cursor: pointer;
+    }
+  
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #000;
+      margin: 5px 0;
+      transition: background-color 0.3s ease;
+      margin-left: 300px;
+    }
+  
+    .menu-icon.open .bar {
+      background-color: transparent;
+    }
+  }
+  

@@ -40,7 +40,7 @@ function Login() {
         }).then(() => {
           window.localStorage.setItem("token", response.data.token);
           if (response.data.userType === "superAdmin") {
-            window.location.href = "/dashboard";
+            window.location.href = "/items";
           } else if (response.data.userType === "user") {
             window.location.href = "/shop";
           } else {

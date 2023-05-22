@@ -2,7 +2,8 @@ import React, { useState, useEffect, useCallback } from "react";
 import axios from 'axios';
 import '../Shop/shop.css'; 
 import swal from 'sweetalert';
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router-dom";
+
 
 
 function Shop(props) {
@@ -66,7 +67,9 @@ function Shop(props) {
             </div>
 
             <div className="button-card">
-            <button onClick={() => navigate("/single", { state: { id: item._id } })}>Details</button>
+            {/* <button onClick={() => navigate("/single", { state: { id: item._id } })}>Details</button> */}
+            <button onClick={() => navigate(`/single/${item._id}`)}>Details</button>
+
 
             <button >Add to Cart</button>
             </div>

@@ -1,30 +1,24 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "./single.css";
 
 function Single() {
-  let navigate = useNavigate();
   const [item, setItem] = useState(null);
-  const location = useLocation();
+  const {id} = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getItem = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:5000/item/getflower/${location.state?.id}`
-        );
+        const response = await axios.get(`http://localhost:5000/item/getflower/${id}`);
         setItem(response.data);
       } catch (error) {
         console.error(error);
       }
     };
     getItem();
-  }, [location.state?.id]);
-
-  const handleAddToCart = () => {
-    
-  };
+  }, [id]);
 
   return (
     <div>
@@ -41,11 +35,12 @@ function Single() {
           </div>
           <p>{item?.description}</p>
 
-          <button className="s-btn" onClick={handleAddToCart}>
+          <button className="s-btn" onClick={() => navigate("/cart")}>
             Add to Cart
           </button>
         </div>
       </div>
+
 
       <div className="section-plus">
         <div className="delivery">

@@ -168,7 +168,7 @@
     }
   
     .s-right p {
-      font-size: clamp(0.45rem, 0.2063rem + 2.3vw, 4.125rem);
+      font-size: 24px;
   }
   
     .s-right {
