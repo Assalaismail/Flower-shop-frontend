@@ -58,6 +58,13 @@ function Items(props) {
     }
   };
 
+  ///////////////////////////////////////////////////////////
+  // Define a callback function to refresh the items
+const refreshItems = useCallback(async () => {
+  await getProducts();
+}, [getProducts]);
+  ///////////////////////////////////////////////////////////
+
   useEffect(() => {
     getcategories();
   }, []);
@@ -87,6 +94,7 @@ function Items(props) {
         .then((res) => {
           if (res.status === 200) {
             setRefresh();
+            getProducts();
           }
         }); // set the new state variable to true after adding item
 
@@ -242,11 +250,12 @@ function Items(props) {
         />
       )}
       {showEditPopup && (
-       <EditItem
-       onClose={handleEditPopupClose}
-       item={selectedItem}
-     />
-      )}
+  <EditItem
+    onClose={handleEditPopupClose}
+    item={selectedItem}
+    refreshItems={refreshItems} // Pass the refreshItems callback
+  />
+)}
 
 {/* for the add item popup */}
       <PopupItem trigger={showPopup} setTrigger={() => setShowPopup(false)}>

@@ -3,19 +3,15 @@ import axios from "axios";
 import "../items/editItem.css";
 import swal from "sweetalert";
 
-
 function EditItem(props) {
   let token = sessionStorage.getItem("token");
 
   const [name, setName] = useState(props.item.name);
   const [itemid, setItemid] = useState(props.item._id);
   const [description, setDescription] = useState(props.item.description);
-
   const [price, setPrice] = useState(props.item.price);
   const [discountPer, setDiscountPer] = useState(props.item.discount_per);
   const [showPopup, setShowPopup] = useState(true);
-
-  const [product, setProduct] = useState([]);
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -35,15 +31,6 @@ function EditItem(props) {
 
   const handleCancelItemButtonClick = () => {
     props.onClose();
-   
-  
-  };
-
-  const config1 = {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
   };
 
   const handleSubmit = async (event) => {
@@ -55,14 +42,13 @@ function EditItem(props) {
       discount_per: discountPer,
     };
     try {
-      console.log("okkk");
-      await axios.put(
-        `http://localhost:5000/item/updflower/${itemid}`,
-        updatedItem
-      );
+      await axios.put(`http://localhost:5000/item/updflower/${itemid}`, updatedItem);
       props.onClose();
-     
       setShowPopup(false);
+  
+      // Invoke the refreshItems callback to refresh the items
+      props.refreshItems();
+  
       swal("The item has been updated!", {
         icon: "success",
       });
@@ -70,6 +56,7 @@ function EditItem(props) {
       console.log(error);
     }
   };
+  
 
   return (
     <div className="popupItem-edit">
@@ -83,10 +70,7 @@ function EditItem(props) {
             x
           </button>
         </div>
-        <form
-          onSubmit={(e) => handleSubmit(e)}
-          className="inputs-add-products-edit"
-        >
+        <form onSubmit={handleSubmit} className="inputs-add-products-edit">
           <label className="labels-input-edit">Name:</label>
           <input
             type="text"
