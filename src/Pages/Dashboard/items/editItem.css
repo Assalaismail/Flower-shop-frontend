@@ -32,8 +32,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgba(236, 236, 236, 0.8);
 }
 
+
+@keyframes showing {
+  0%{
+      transform: scale(0);
+      opacity: 0;
+  }
+  
+  100%{
+      opacity: 1;
+      transform: scale(1);
+  }
+}
 .popup-inner-edit {
   position: relative;
   padding: 32px;
@@ -41,9 +54,11 @@
   max-width: 640px;
   background-color: #f2f2f2;
   border-radius: 10px;
-  border: 1px solid lightpink;
+  border: 1px solid black;
   max-height: 80vh;
   overflow-y: auto;
+  animation: showing .4s ease;
+
 }
 
 .inputs-add-products-edit {
