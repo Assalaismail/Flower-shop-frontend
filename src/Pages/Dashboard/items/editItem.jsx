@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import '../items/editItem.css';
+import React, { useState, useCallback } from "react";
+import axios from "axios";
+import "../items/editItem.css";
+import swal from "sweetalert";
+
 
 function EditItem(props) {
-  let token=sessionStorage.getItem("token")
+  let token = sessionStorage.getItem("token");
 
   const [name, setName] = useState(props.item.name);
   const [itemid, setItemid] = useState(props.item._id);
@@ -11,7 +13,9 @@ function EditItem(props) {
 
   const [price, setPrice] = useState(props.item.price);
   const [discountPer, setDiscountPer] = useState(props.item.discount_per);
-  const [showPopup, setShowPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(true);
+
+  const [product, setProduct] = useState([]);
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -28,6 +32,13 @@ function EditItem(props) {
   const handleDiscountPerChange = (event) => {
     setDiscountPer(event.target.value);
   };
+
+  const handleCancelItemButtonClick = () => {
+    props.onClose();
+   
+  
+  };
+
   const config1 = {
     headers: {
       "Content-Type": "application/json",
@@ -44,8 +55,17 @@ function EditItem(props) {
       discount_per: discountPer,
     };
     try {
-      await axios.put(`http://localhost:5000/item/updflower/${itemid}`, updatedItem);
+      console.log("okkk");
+      await axios.put(
+        `http://localhost:5000/item/updflower/${itemid}`,
+        updatedItem
+      );
       props.onClose();
+     
+      setShowPopup(false);
+      swal("The item has been updated!", {
+        icon: "success",
+      });
     } catch (error) {
       console.log(error);
     }
@@ -54,33 +74,60 @@ function EditItem(props) {
   return (
     <div className="popupItem-edit">
       <div className="popup-inner-edit">
-        <div className='title-close-edit'>
-          <h2 className='title-edit'>Edit Item</h2>
-          <button className='close-item-btn-edit' onClick={() => window.location.reload()}>
+        <div className="title-close-edit">
+          <h2 className="title-edit">Edit Item</h2>
+          <button
+            className="close-item-btn-edit"
+            onClick={handleCancelItemButtonClick}
+          >
             x
           </button>
         </div>
-        <form onSubmit={(e) => handleSubmit(e)} className="inputs-add-products-edit"> 
+        <form
+          onSubmit={(e) => handleSubmit(e)}
+          className="inputs-add-products-edit"
+        >
           <label className="labels-input-edit">Name:</label>
-          <input type="text" id="name" value={name} className="input-name-edit" onChange={handleNameChange} />
+          <input
+            type="text"
+            id="name"
+            value={name}
+            className="input-name-edit"
+            onChange={handleNameChange}
+          />
 
           <label className="labels-input-edit">Description:</label>
-          <textarea id="description" value={description} className="input-name-edit-desc" onChange={handleDescriptionChange} />
+          <textarea
+            id="description"
+            value={description}
+            className="input-name-edit-desc"
+            onChange={handleDescriptionChange}
+          />
 
-         
           <label className="labels-input-edit">Price ($):</label>
-          <input type="text" id="price" value={price} className="input-name-edit" onChange={handlePriceChange} />
+          <input
+            type="text"
+            id="price"
+            value={price}
+            className="input-name-edit"
+            onChange={handlePriceChange}
+          />
 
           <label className="labels-input-edit">Discount (%):</label>
-          <input type="text" id="discount-per" value={discountPer} className="input-name-edit" onChange={handleDiscountPerChange} />
+          <input
+            type="text"
+            id="discount-per"
+            value={discountPer}
+            className="input-name-edit"
+            onChange={handleDiscountPerChange}
+          />
           <button type="submit" className="btn-edit-item">
-         Save Changes
+            Save Changes
           </button>
-      </form>
- </div>
- </div>
-   );
- }
+        </form>
+      </div>
+    </div>
+  );
+}
 
 export default EditItem;
-

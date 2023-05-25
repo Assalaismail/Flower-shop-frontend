@@ -30,9 +30,10 @@
     padding: 32px;
     width:60%;
     max-width:640px;
-    background-color: rgb(252 185 0 );
+   
     border-radius: 10px;
     animation: showing .4s ease;
+    border: 1px solid black;
 }
 
 @media all and (max-width:500px){
@@ -49,7 +50,7 @@
     position: absolute;
     top:10px;
     right: 16px;
-    cursor: pointer;  background-color: white; /* Green */
+    cursor: pointer;  background-color: white; 
     color: black;
     text-align: center;
     text-decoration: none;

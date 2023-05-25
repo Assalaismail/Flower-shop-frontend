@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useReducer } from "react";
 import axios from "axios";
 import swal from "sweetalert";
 
@@ -11,16 +11,22 @@ import PopupItem from "../items/popupItem";
 
 function Items(props) {
   let token = sessionStorage.getItem("token");
-
+  const [refresh, setRefresh] = useReducer((x) => x + 1, 0);
   const [product, setProduct] = useState([]);
-  const [flippedItem, setFlippedItem] = useState(null);
   const { categoryId } = props;
   const navigate = useNavigate();
   const [item, setItem] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
-
   const [showEditPopup, setShowEditPopup] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [discount_per, setDiscount_per] = useState("");
+  const [cat, setCat] = useState("");
+  const [image, setImage] = useState("");
+  const [category, setCategory] = useState([]);
+
 
   const getProducts = useCallback(async () => {
     try {
@@ -41,9 +47,75 @@ function Items(props) {
     }
   }, [categoryId]);
 
+  const getcategories = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:5000/category/getcategory"
+      );
+      setCategory(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getcategories();
+  }, []);
+
   useEffect(() => {
     getProducts();
   }, [getProducts]);
+
+  //add new item
+  const addItem = async () => {
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("description", description);
+    formData.append("price", price);
+    formData.append("discount_per", discount_per);
+    formData.append("category", cat);
+    formData.append("image", image);
+
+    try {
+      await axios
+        .post("http://localhost:5000/item/addflower", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            // Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => {
+          if (res.status === 200) {
+            setRefresh();
+          }
+        }); // set the new state variable to true after adding item
+
+      setShowPopup(false);
+
+      swal({
+        title: "Item added successfully!",
+        icon: "success",
+      });
+      setName("");
+      setDescription("");
+      setPrice("");
+      setDiscount_per("");
+      setCat("");
+      setImage(null);
+    } catch (error) {
+      console.error(error);
+      swal({
+        title: "Oops!",
+        text: "Something went wrong. Please try again later.",
+        icon: "error",
+      });
+    }
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    addItem();
+  };
 
   //delete item
   const deleteUser = async (id) => {
@@ -75,29 +147,6 @@ function Items(props) {
     });
   };
 
-  // edit item
-  const editItem = async (id) => {
-    try {
-      const response = await axios.put(
-        `http://localhost:5000/item/updflower/${id}`,
-        {},
-        {
-          headers: {
-            "Content-Type": "application/json",
-            //   Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      getProducts();
-      setShowEditPopup(false);
-      swal("The item has been updated!", {
-        icon: "success",
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   // open the EditItemPopup component with the selected item
   const handleEditButtonClick = (item) => {
     setSelectedItem(item);
@@ -105,19 +154,39 @@ function Items(props) {
   };
 
   // close the EditItemPopup component
-  const handleEditPopupClose = (newItem) => {
-    editItem(selectedItem._id, newItem);
+  const handleEditPopupClose = () => {
+    setShowEditPopup(false);
+  };
+
+  const handleAddItemButtonClick = () => {
+    setShowPopup(true);
+  };
+
+  const handleCancelItemButtonClick = () => {
+    // setShowPopup(false);
+    props.onClose();
+
+   
+  };
+
+  const handleImageChange = async (event) => {
+    event.preventDefault();
+    setImage(event.target.files[0]);
   };
 
   return (
     <div className="tbl-wrper">
+      <div class="container-add-itemmm">
+        <button onClick={handleAddItemButtonClick} className="add-itemmm">
+          <span className="add-item-icon-dash">&#43;</span>Add Item
+        </button>
+      </div>
       <table className="table-item">
         <thead>
           <tr className="first-item--">
             <th>Image</th>
             <th>Name</th>
             <th>Description</th>
-
             <th>Price</th>
             <th>Discounted %</th>
             <th>New Price</th>
@@ -168,15 +237,113 @@ function Items(props) {
 
       {showPopup && (
         <PopupItem
-          onClose={() => setShowPopup(false)}
+          onClose={handleCancelItemButtonClick}
           reloadItems={() => getProducts()}
         />
       )}
       {showEditPopup && (
-        <EditItem
-          onClose={handleEditPopupClose}
-          item={selectedItem}
-          onEdit={(newItem) => editItem(selectedItem._id, newItem)}
+       <EditItem
+       onClose={handleEditPopupClose}
+       item={selectedItem}
+     />
+      )}
+
+{/* for the add item popup */}
+      <PopupItem trigger={showPopup} setTrigger={() => setShowPopup(false)}>
+        <div className="inputs-add-products">
+          <div className="container-items-x">
+            <h2 className="title-edit">Add Item:</h2>
+            <div className="close-item-btn-container">
+              <button
+                className="close-item-btn-edit"
+                onClick={handleCancelItemButtonClick}
+              >
+                x
+              </button>
+            </div>
+          </div>
+
+          <label className="labels-input-add">Product Name: </label>
+          <input
+            type="text"
+            name="name"
+            className="input-name-add"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+
+          <label className="labels-input-add">Product Description: </label>
+          <textarea
+            name="description"
+            className="input-name-add"
+            id="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+
+          <label className="labels-input-add">Product Price ($):</label>
+          <input
+            type="text"
+            name="price"
+            className="input-name-add"
+            id="price"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+          />
+
+          <label className="labels-input-add">Discount (%):</label>
+          <input
+            type="text"
+            name="discount_per"
+            className="input-name-add"
+            id="discount_per"
+            value={discount_per}
+            onChange={(e) => setDiscount_per(e.target.value)}
+          />
+
+          <label className="labels-input-add">Category</label>
+          <select
+            id="category"
+            name="category"
+            value={cat}
+            onChange={(e) => setCat(e.target.value)}
+            className="input-name-add"
+          >
+            <option value="">-- Select a category --</option>
+            {Array.isArray(category) &&
+              category.map((item, index) => (
+                <option key={index} value={item._id}>
+                  {item.name_category}
+                </option>
+              ))}
+          </select>
+
+          <label className="labels-input-add">Product Image</label>
+          <input
+            type="file"
+            className="input-name-add"
+            name="productImage"
+            onChange={handleImageChange}
+          />
+        </div>
+        <div className="btn-pop-wrapper">
+          <button className="btn-add-item" onClick={submitHandler}>
+            Add
+          </button>
+          <button
+            className="btn-cancel-item"
+            onClick={handleCancelItemButtonClick}
+          >
+            Cancel
+          </button>
+        </div>
+      </PopupItem>
+
+      {showPopup && (
+        <PopupItem
+          onClose={() => setShowPopup(false)}
+          reloadItems={() => getProducts()}
         />
       )}
     </div>
