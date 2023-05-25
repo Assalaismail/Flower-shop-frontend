@@ -171,8 +171,8 @@ const refreshItems = useCallback(async () => {
   };
 
   const handleCancelItemButtonClick = () => {
-    // setShowPopup(false);
-    props.onClose();
+    setShowPopup(false);
+    // props.onClose();
 
    
   };
