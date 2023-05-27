@@ -16,6 +16,7 @@ import DashLayout from "./Pages/Dashboard/dashlayout";
 import Items from "./Pages/Dashboard/items/items";
 import Categorydashitem from "./Pages/Dashboard/items/category";
 import Categories from "./Pages/Dashboard/Categories/categories";
+import Reservation from "./Pages/reservation/reservation";
 
 
 function App() {
@@ -35,6 +36,8 @@ function App() {
             <Route path="/aboutus" element={<Aboutus />} />
             <Route path="/contactus" element={<ContactUs />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/reservation" element={<Reservation />} />
+
           </Route>
 
           <Route path="/" element={<DashLayout />}>

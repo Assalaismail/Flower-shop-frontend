@@ -107,7 +107,9 @@ function Home() {
           From budgeting to booking to breaking down, we're here to work with
           you every step of the way.
         </p>
+        <Link to="/reservation">
         <button className="event-button">Book your event!</button>
+        </Link>
       </div>
 
       <div className="home-about-us">

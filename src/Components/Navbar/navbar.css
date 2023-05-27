@@ -228,6 +228,9 @@
       color: whitesmoke;
       outline: none;
     }
+    .nav-links li a.active {
+      color: white !important;
+    }
   }
   
   

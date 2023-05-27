@@ -67,7 +67,7 @@ function Shop(props) {
             </div>
 
             <div className="button-card">
-            {/* <button onClick={() => navigate("/single", { state: { id: item._id } })}>Details</button> */}
+         
             <button onClick={() => navigate(`/single/${item._id}`)}>Details</button>
 
 
