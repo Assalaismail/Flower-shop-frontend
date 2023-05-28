@@ -1,4 +1,4 @@
-.login-container {
+.register-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,29 +6,36 @@
     height: 90.5vh;
   }
 
-  
-  .login-h1 {
+  .border-reg{
+    border: 2px solid grey;
+    padding-left: 75px;
+    padding-right: 75px;
+    padding-top: 10px;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    box-shadow: 4px 2px 4px rgba(0.8, 0, 0, 0.5);
+  }
+  .register-h1 {
     font-size: 3rem;
     margin-bottom: 2rem;
     color: lightpink;
     font-weight: 900;
-    text-align: center;
   }
   
-  .form-login {
+  .form-register {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
   }
   
-  .label-login {
+  .label-register {
     font-size: 1.5rem;
     margin-bottom: 1rem;
   }
   
-  .input-login,
-  .input-login{
+  .input-register {
     padding: 0.5rem;
     font-size: 1.2rem;
     margin-bottom: 1rem;
@@ -38,7 +45,7 @@
     border-color: lightpink;
   }
   
-  .button-login[type="submit"] {
+  .button-register[type="submit"] {
     font-size: 20px;
     border-color: lightpink;
     background-color: lightpink;
@@ -48,9 +55,4 @@
     margin-top: 20px;
   }
 
-  .registration{
-    font-weight: 900;
-    margin-top: 20px;
-    font-size: 20px;
-  }
   

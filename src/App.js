@@ -7,31 +7,49 @@ import Layout from "./Pages/layout.jsx";
 import Home from "./Components/Home/home";
 import Aboutus from "./Pages/Aboutus/aboutus";
 import ContactUs from "./Pages/Contactus/contactus";
+import Login from "./Components/Login/login";
+import Register from "./Components/Registration/register";
+import Category from "./Pages/Shop/category";
+import Single from "./Pages/Single/single";
 
+import DashLayout from "./Pages/Dashboard/dashlayout";
+import Items from "./Pages/Dashboard/items/items";
+import Categorydashitem from "./Pages/Dashboard/items/category";
+import Categories from "./Pages/Dashboard/Categories/categories";
+import Reservation from "./Pages/reservation/reservation";
 
 
 function App() {
-  
   return (
     <>
-   
       <BrowserRouter>
         <Routes>
           
 
           <Route path="/" element={<Layout />}>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/shop" element={<Shop/>}/>
-          <Route path="/aboutus" element={<Aboutus/>}/>
-          <Route path="/contactus" element={<ContactUs/>}/>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/shop" element={<Category />} />
+            <Route path="/shop/:category_id" element={<Shop />} />
+            <Route path="/single/:id" element={<Single />} />
+
+            <Route path="/aboutus" element={<Aboutus />} />
+            <Route path="/contactus" element={<ContactUs />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/reservation" element={<Reservation />} />
+
+          </Route>
+
+          <Route path="/" element={<DashLayout />}>
+          <Route path="/items" element={<Categorydashitem />} />
+          <Route path="/items/:category_id" element={<Items />} />
+          <Route path="/categories" element={<Categories />} />
 
 
-
-          
+            
           </Route>
         </Routes>
       </BrowserRouter>
-     
     </>
   );
 }

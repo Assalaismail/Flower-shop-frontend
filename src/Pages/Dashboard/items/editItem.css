@@ -1,0 +1,108 @@
+.input-name-edit {
+  border: 1px solid black;
+  width: 100%;
+  height: 29%;
+  font-size: 25px;
+  border-radius: 7px;
+}
+
+.input-name-edit-desc {
+  border: 2px solid black;
+  width: 100%;
+  height: 100px;
+  font-size: 20px;
+}
+
+.labels-input-edit {
+  font-size: 24px;
+  padding: 3px;
+  font-weight: 900;
+  margin-top: 12px;
+  margin-bottom: 10px;
+}
+
+.popupItem-edit {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(236, 236, 236, 0.8);
+}
+
+
+@keyframes showing {
+  0%{
+      transform: scale(0);
+      opacity: 0;
+  }
+  
+  100%{
+      opacity: 1;
+      transform: scale(1);
+  }
+}
+.popup-inner-edit {
+  position: relative;
+  padding: 32px;
+  width: 60%;
+  max-width: 640px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  border: 1px solid black;
+  max-height: 80vh;
+  overflow-y: auto;
+  animation: showing .4s ease;
+
+}
+
+.inputs-add-products-edit {
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-close-edit {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+}
+
+.close-item-btn-edit {
+  font-size: 30px;
+  border: none;
+  background-color: #f2f2f2;
+}
+
+.title-edit {
+  font-size: 35px;
+  color: hotpink;
+  font-weight: 900;
+  text-decoration: underline;
+}
+
+.btn-edit-item {
+  border: 1px solid black;
+  color: black;
+  padding: 5px;
+  font-size: 15px;
+  font-weight: 900;
+  width: 100px;
+  margin-top: 12px;
+  border-radius: 7px;
+}
+
+@media all and (max-width: 500px) {
+  .popup-inner-edit {
+    width: 95%;
+  }
+
+  .category-button-dash {
+    width: 80px;
+  }
+}

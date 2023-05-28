@@ -1,0 +1,119 @@
+.category-container-dash {
+    display: flex;
+    width: 100%;
+  }
+  
+  .category-sidebar-dash {
+    width: 20%;
+    background-color: #f8f8f8;
+    padding: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .category-buttons-dash {
+    margin-bottom: 20px;
+  }
+  
+  .category-sidebar-dash .category-button-dash {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 18px;
+    font-weight: 900;
+  }
+  
+  .category-sidebar-dash .category-button-dash:hover {
+    background-color: #eaeaea;
+  }
+  
+  .category-sidebar-dash .category-button-dash.selected {
+    background-color: lightpink;
+    color: #ffffff;
+  }
+  
+  .shop-container-dash {
+    /* flex-grow: 1; */
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 70%;
+  }
+  
+  /* Responsive Modifications */
+  @media screen and (max-width: 1024px) {
+    .category-container-dash {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .category-sidebar-dash {
+      width: 100%;
+      padding: 20px;
+    }
+  
+    .category-buttons-dash {
+      flex-direction: row;
+      overflow-x: auto;
+    }
+  
+    .category-button-dash {
+      margin-right: 10px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .category-container-dash {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .category-sidebar-dash {
+      width: 100%;
+      padding: 20px;
+    }
+  
+    .category-buttons-dash {
+      flex-direction: row;
+      overflow-x: auto;
+    }
+  
+    .category-button-dash {
+      margin-right: 10px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .category-sidebar-dash {
+      padding: 10px;
+    }
+  
+    .category-button-dash {
+      font-size: 14px;
+    }
+  }
+  /* New media query for screens larger than 1024px */
+  @media screen and (min-width: 1025px) {
+    .category-container-dash {
+      flex-direction: row;
+    }
+  
+    .category-sidebar-dash {
+      width: 20%;
+      padding: 50px;
+    }
+  
+    .category-buttons-dash {
+      flex-direction: column;
+      overflow-x: visible;
+    }
+  
+    .category-button-dash {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }

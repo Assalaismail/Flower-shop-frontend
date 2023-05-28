@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
 import "../Home/home.css";
 import slider1 from "../../Assets/image1.jpg";
 import image2 from "../../Assets/image2.jpg";
@@ -6,6 +7,7 @@ import image3 from "../../Assets/image3.jpg";
 import round1 from "../../Assets/sura.jpg";
 import round2 from "../../Assets/round2.jpg";
 import round3 from "../../Assets/sura2.jpg";
+import aboutus from "../../Assets/sura (3).png";
 
 function Home() {
   const [slideIndex, setSlideIndex] = useState(1);
@@ -57,8 +59,6 @@ function Home() {
     setSlideIndex(n);
   };
 
- 
-
   return (
     <div>
       <div className="slideshow-container">
@@ -75,14 +75,6 @@ function Home() {
         </ul>
       </div>
 
-      <br />
-
-      <div style={{ textAlign: "center" }}>
-        <span className="dot" onClick={() => currentSlide(1)}></span>
-        <span className="dot" onClick={() => currentSlide(2)}></span>
-        <span className="dot" onClick={() => currentSlide(3)}></span>
-      </div>
-
       <div className="daily-flowers">
         <div>
           <p className="daily-title">Daily Flowers</p>
@@ -91,31 +83,51 @@ function Home() {
             our daily flowers menu & <br></br>place your order for a Beirut
             flower delivery or studio pick up!
           </p>
-          <button class="daily-button" >Order here!</button>
-
+          <Link to="/shop">
+            <button className="daily-button">Order here!</button>
+          </Link>
         </div>
 
         <div className="daily-images">
-          <img src={round1} alt="Flower image" class="round-image" />
-          <img src={round2} alt="Flower image" class="round-image" />
-          <img src={round3} alt="Flower image" class="round-image1" />
+          <img src={round1} alt="Flower image" className="round-image" />
+          <img src={round2} alt="Flower image" className="round-image" />
+          <img src={round3} alt="Flower image" className="round-image1" />
         </div>
       </div>
 
       <div className="event">
-        <div>
-          <p className="event-title">Weddings & Event Flowers</p>
-          <p className="event-text">
-            Do you have a special event coming up? Recently got engaged and
-            looking for a wedding florist to<br></br> bring your vision to life?
-            We offer whimsical, garden-like wildflowers designed specifically to
-            make your<br></br> big day even more special.
+        <p className="event-title">Weddings & Event Flowers</p>
+        <p className="event-text">
+          Do you have a special event coming up? Recently got engaged and
+          looking for a wedding florist to<br></br> bring your vision to life?
+          We offer whimsical, garden-like wildflowers designed specifically to
+          make your<br></br> big day even more special.
+        </p>
+        <p className="event-text2">
+          From budgeting to booking to breaking down, we're here to work with
+          you every step of the way.
+        </p>
+        <Link to="/reservation">
+        <button className="event-button">Book your event!</button>
+        </Link>
+      </div>
+
+      <div className="home-about-us">
+        <div className="about-us-image">
+          <img src={aboutus} alt="Image Description" />
+        </div>
+        <div className="about-us-content about-us-content-desktop">
+          <p>
+            At Fleur de vie, we believe that flowers have the power to brighten
+            any day and bring joy to any occasion. That's why we're passionate
+            about crafting stunning arrangements that not only look beautiful,
+            but also convey the perfect message. Whether you're celebrating a
+            special milestone, expressing gratitude, or simply brightening up
+            your own space, our expert florists are here to help.
           </p>
-          <p className="event-text2">
-            From budgeting to booking to breaking down, we're here to work with
-            you every step of the way.
-          </p>
-          <button className="event-button">Book your event!</button>
+          <Link to="/aboutus">
+            <button className="read-more-button">Read More</button>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,0 +1,145 @@
+.tbl-wrper {
+  width: 100%;
+}
+
+.table-item {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: center;
+  margin-left: 20px;
+
+}
+
+.table-item th,
+.table-item td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center; /* Center the content inside cells */
+}
+
+.table-item th {
+  background-color: #f2f2f2;
+}
+
+.item-image {
+  width: 7%;
+}
+
+.item-image img {
+  max-width: 100px;
+  height: auto;
+  align-items: center;
+  display: block;
+  margin: 0 auto;
+}
+
+.item-desc {
+  width: 35%;
+}
+
+.item-name {
+  width: 7%;
+}
+
+.item-price,
+.item-discount-per,
+.item-price-after {
+  width: 7%;
+}
+
+.button-delete-item {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.button-edit-item {
+  background-color: white;
+  cursor: pointer;
+  border: none;
+  font-size: 25px;
+}
+
+.btn-add-item{
+  border: 1px solid black;
+  color: black;
+  padding: 5px;
+  font-size: 20px ;
+  font-weight: 900;
+  width: 100px;
+  margin-top: 7px;
+  border-radius: 7px;
+
+}
+
+.btn-cancel-item{
+  border: 1px solid white;
+  color: black;
+  padding: 5px;
+  font-size: 15px;
+  font-weight: 900;
+  width: 100px;
+  margin-top: 7px;
+  margin-left: 20px;
+}
+
+.input-name-add{
+  border: 1px solid black;
+  width: 100%;
+  height: 29%;
+  font-size: 25px;
+  border-radius: 7px;
+}
+
+.labels-input-add{
+  font-size: 24px;
+  padding: 3px;
+  font-weight: 900;
+ 
+}
+
+.container-add-itemmm {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.container-items-x {
+  display: flex;
+  align-items: center;
+}
+
+.title-edit {
+  margin-right: auto;
+}
+
+.close-item-btn-container {
+  margin-left: auto;
+}
+
+
+.add-itemmm {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: grey;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px;
+ 
+}
+
+.add-itemmm :hover {
+  background-color: lightpink;
+}
+
+.add-item-icon-dash {
+  margin-right: 5px;
+}
