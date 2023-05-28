@@ -140,7 +140,7 @@ function Reservation() {
               </div>
               <div>
                 <label htmlFor="phone_nb" className="res-label">
-                  Phone Number(xxxxxxxx):
+                  Phone Number (xxxxxxxx):
                 </label>
                 <input
                   type="text"
@@ -197,7 +197,7 @@ function Reservation() {
 
               <div className="tools">
                 <label className="res-label-tool">
-                  Floral designs needed for the following:
+                 Floral designs needed for the following:
                 </label>
 
                 <div className="tools-check">
@@ -211,7 +211,7 @@ function Reservation() {
                         checked={tools.includes("Wedding bouquet")}
                         onChange={(e) => handleToolChange(e.target.value)}
                       />
-                      Wedding bouquet
+                     &nbsp;  Wedding bouquet
                     </label>
                   </div>
                   <div>
@@ -224,7 +224,7 @@ function Reservation() {
                         checked={tools.includes("Wedding party bouquets")}
                         onChange={(e) => handleToolChange(e.target.value)}
                       />
-                      Wedding party bouquets
+                     &nbsp; Wedding party bouquets
                     </label>
                   </div>
                   <div>
@@ -237,7 +237,7 @@ function Reservation() {
                         checked={tools.includes("Long tables")}
                         onChange={(e) => handleToolChange(e.target.value)}
                       />
-                      Long tables
+                     &nbsp; Long tables
                     </label>
                   </div>
                   <div>
@@ -250,7 +250,7 @@ function Reservation() {
                         checked={tools.includes("Aisle")}
                         onChange={(e) => handleToolChange(e.target.value)}
                       />
-                      Aisle
+                    &nbsp;  Aisle
                     </label>
                   </div>
                   <div>
@@ -263,7 +263,7 @@ function Reservation() {
                         checked={tools.includes("Crowns")}
                         onChange={(e) => handleToolChange(e.target.value)}
                       />
-                      Crowns
+                     &nbsp; Crowns
                     </label>
                   </div>
                   <div>
@@ -276,7 +276,7 @@ function Reservation() {
                         checked={tools.includes(" Sweetheart table")}
                         onChange={(e) => handleToolChange(e.target.value)}
                       />
-                      Sweetheart table
+                    &nbsp;  Sweetheart table
                     </label>
                   </div>
                 </div>

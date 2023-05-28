@@ -135,8 +135,9 @@
     }
   
     .logo span {
-      font-size: 1.2rem;
+      font-size: 1rem;
       font-weight: bold;
+      margin-top: 13px;
     }
   
     .nav-links li a,
@@ -156,6 +157,13 @@
       margin-inline: 5px 10px;
       font-size: 0.9rem;
       font-weight: bold;
+    }
+
+    .logo img {
+      width: 95px;
+      cursor: pointer;
+      height: 70px;
+      margin-top: 10px;
     }
   }
   

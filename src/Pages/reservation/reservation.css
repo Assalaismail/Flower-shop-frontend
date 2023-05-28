@@ -111,6 +111,7 @@
 .res-label-tool {
   font-weight: bold;
   font-size: 20px;
+  white-space: nowrap;
  
 }
 
@@ -121,14 +122,14 @@
 }
 
 .res-input-address {
-  width: 207%;
+  width: 178%;
   padding: 8px;
   margin-bottom: 16px;
   height: 70px;
 }
 
 .res-input[type="submit"] {
-  background-color: #4caf50;
+  
   color: white;
   padding: 10px 24px;
   border: none;
@@ -157,36 +158,40 @@
   }
   
   .tools-check > div {
-    width: calc(50% - 10px);
+    width: 100%;
     display: flex;
+    margin-bottom: 15px;
+    font-size: 18px;
+    margin-top: 10px;
   }
   
   
 
 .details {
-  width: 207%;
+  width: 178%;
   font-weight: bold;
   font-size: 20px;
   
 }
 .res-input-details {
   height: 70px;
-  width: 207%;
+  width: 178%;
+  padding: 7px;
 }
 
 /* Reservation Form Popup */
 .res-popup {
     position: fixed;
-    top: 90px; /* Add a small margin from the top */
+    top: 90px; 
     left: 0;
     width: 100%;
-    height: calc(100% - 90px); /* Subtract the margin from the height */
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    height: calc(100% - 90px); 
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow-y: auto; /* Enable vertical scrolling within the popup */
-    z-index: 9999; /* Adjust the z-index value if needed */
+    overflow-y: auto; 
+    z-index: 9999; 
   }
   
 
@@ -197,8 +202,8 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     max-width: 645px;
     border: 3px solid black;
-    width: 80%; /* Adjust the width as desired */
-    margin: auto; /* Center the popup horizontally */
+    width: 80%; 
+    margin: auto; 
   }
   
 
@@ -226,38 +231,33 @@
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
-  margin-right: 427px;
+  margin-right: 444px;
 }
 
 .res-images {
-  display: flex;
-  justify-content: center;
-  margin-top: 25px;
-  margin-bottom: 25px;
-  align-items: center;
-  grid-gap: 3%;
-}
-
-.res-image {
-  width: 20%;
-  border-radius: 50%;
-  object-fit: cover;
-  aspect-ratio: 1/1;
-  background-color: grey;
-  transition: transform 0.3s ease-in-out;
-}
-
-.res-image:hover,
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3%;
+  }
+  
+  .res-image,
+  .res-image1 {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    background-color: grey;
+    transition: transform 0.3s ease-in-out;
+  }
+  .res-image:hover,
 .res-image1:hover {
   transform: scale(0.8);
-}
-
-.res-image1 {
-  width: 20%;
-  border-radius: 50%;
-  object-fit: cover;
-  aspect-ratio: 1/1;
-  transition: transform 0.3s ease-in-out;
 }
 
 
@@ -266,7 +266,7 @@
     .bookyourevent {
       margin-left: 20px;
       font-size: 30px;
-      margin-top: 30px;
+      margin-top: 13px;
       margin-bottom: 10px;
     }
   
@@ -286,10 +286,12 @@
   
     .res-event {
       max-width: 90%;
-    }
+    
+      }
+    
   
     .res-event-title {
-      font-size: 25px;
+      font-size: 32px;
       margin-top: 30px;
     }
   
@@ -334,83 +336,72 @@
     }
   
     .res-popup-content {
-      width: 90%;
+      width: 95%;
       max-width: 100%;
     }
   
     .res-submit-btn {
-      margin-right: 150px;
+      margin-right: 169px;
     }
   
-    .res-images {
-      flex-wrap: wrap;
-    }
-  
+   
     .res-image,
     .res-image1 {
-      width: 30%;
+      max-width: 80%; 
+      height: auto;
       margin-bottom: 10px;
     }
   }
   
   /* Styles for tablet devices */
-  @media (min-width: 601px) and (max-width: 1024px) {
+@media (max-width: 1024px) {
     .bookyourevent {
-      margin-left: 50px;
       font-size: 40px;
-      margin-top: 40px;
+      margin-top: 20px;
       margin-bottom: 15px;
     }
-  
+
     .res-event {
-      max-width: 70%;
-    }
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-family: cursive;
+       
+        margin: 0 auto;
+      }
   
     .res-event-title {
       font-size: 30px;
+      margin-bottom: 15px;
       margin-top: 40px;
     }
   
     .res-event-text,
     .res-event-text1,
     .res-event-text2 {
-      font-size: 18px;
+      font-size: 25px;
+      margin-bottom: 15px;
     }
   
     .res-button {
       font-size: 18px;
-      padding: 12px 18px;
+      padding: 12px;
+      margin-top: 15px;
+      margin-bottom: 25px;
     }
   
     .res-container {
       height: auto;
+      margin-bottom: 20px;
     }
   
-    .res-form {
-      max-width: 80%;
-    }
-  
-    .res-h2 {
-      font-size: 35px;
-    }
-  
-    .tools-check > div {
-      width: 100%;
-    
-    }
-  
-    .details {
-      width: 100%;
-    }
-  
-    .res-popup-content {
-      width: 70%;
-    }
-  
-    .res-image,
-    .res-image1 {
-      width: 25%;
-      margin-bottom: 15px;
-    }
+   
+   
+
+   
   }
+  
   
