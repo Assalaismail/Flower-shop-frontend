@@ -1,0 +1,67 @@
+.tbl-wrper-res {
+    margin: 20px;
+  }
+  
+  .table-res {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table-res th,
+  .table-res td {
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .table-res td {
+    text-align: center;
+  }
+  
+  .table-res th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    font-size: 25px;
+  }
+  
+  .table-res tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .res-name {
+    max-width: 200px;
+  }
+  
+  .tools-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .tools-list li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+  }
+  
+  .button-delete-res {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #555;
+    transition: color 0.3s;
+    font-size: 25px;
+  }
+  
+  .button-delete-res:hover {
+    color: lightpink;
+  }
+  
+  .button-delete-res:focus {
+    outline: none;
+  }
+  
+  .button-delete-res .fa-trash {
+    font-size: 30px;
+  }
+  

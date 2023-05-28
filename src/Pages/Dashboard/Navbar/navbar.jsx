@@ -66,6 +66,12 @@ function Navbardash() {
             orders
           </a>
         </li>
+
+        <li className={nav ? "maintain" : "normal"}>
+          <a href="/reservations" className={location.pathname === "/reservations" ? "active" : ""}>
+            reservations
+          </a>
+        </li>
       </ul>
     </header>
   );
