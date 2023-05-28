@@ -1,5 +1,5 @@
   .contact-us h1 {
-    font-size: 35px;
+    font-size: 40px;
     font-weight: bold;
     color: lightpink;
   }
@@ -15,9 +15,9 @@
   }
   
   .contact-form label {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
-    color: gray;
+    color: darkslategray;
   }
   
   .contact-form input {
@@ -44,9 +44,19 @@
   }
   
   .form-sbmt {
-    width: 30%;
-    padding: 10px 15px;
+    font-size: 20px;
     background-color: lightpink;
+    padding: 15px;
+    border-radius: 26px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    border: 2px solid lightpink;
+    box-shadow: 3px 3px grey;
+    margin-bottom: 30px;
+    color: darkslategray;
+    font-weight: 900;
   }
   .form{
     width: 35%;
@@ -56,18 +66,16 @@
   
   .contact-us {
     width: 100%;
-    min-height: 80vh;
+    min-height: 85vh;
     background-color: white;
     position: relative;
   }
   
   .secondary {
     width: 100%;
-    /* position: absolute; */
     display: flex;
     justify-content: center;
     align-items: center;
-    bottom: 0;
     height: 80%;
   }
   
@@ -90,15 +98,9 @@
     font-size: 20px;
     width: 80%;
     text-align: center;
+    color: darkslategray;
+    margin-top: 10px;
   }
-  
-  /* .holder-contact{
-    position: relative;
-    width: 85%;
-    height: 80%;
-    display: flex;
-  } */
-  
   .insider{
     width: 70%;
     margin: 0 auto;
@@ -107,113 +109,140 @@
   }
   
   .google-map{
-    width: 350px;
-    height: 80%;
-    /* display: flex; */
+    width: 400px;
     align-items: flex-end;
-    margin-top: 10px;
   }
   
 .map{
   padding-left: 170px;
+}
+
+.iframe{
+  height: 555px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 14px 0px;
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+  .primary {
+    width: 100%;
+    padding: 2vh;
+  }
+
+  .insider {
+    flex-direction: column;
+  }
+
+  .map{
+    padding-left: 0;
+  }
+
+  .contact-form {
+    width: 300px;
+    padding: 2vh;
+  }
+
+  .contact-form label {
+    font-size: 16px;
+  }
+
+  .contact-form input,
+  .contact-form .message {
+    font-size: 14px;
+  }
+
+  .form-sbmt {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .google-map {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .map {
+    padding: 0;
+  }
+  
+  .iframe {
+    width: 100%;
+    height: 300px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 14px 0px;
+    margin-bottom: 20px;
+  }
+
+  .insider{
+    width: 77%;
+    margin: 0 auto;
+    display: flex;
+    gap: 30px;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .primary {
+    width: 90%;
+    padding: 4vh;
+  }
+
+  .primary p{
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+    color: darkslategray;
+    margin-top: 10px;
+  }
+
+  .primary h1{
+    font-size: 60px;
+  }
+  
+
+  .insider {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-left: 0;
+  }
+
+  .contact-form {
+    width: 480px;
+    padding: 3vh;
+    margin: 0 auto; 
+  }
+
+  .form-sbmt {
+    font-size: 18px;
+    padding: 12px;
+  }
+
+  .google-map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+  }
+
+  .map{
+    padding-left: 0;
+    margin-left: 270px;
+    margin-bottom: 20px;
+  }
+
+
+  .iframe {
+    height: 400px;
+    width: 500px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 14px 0px;
+  }
 
 }
-  
-  @media screen and (max-width: 1230px) {
-  
-    .insider{
-      width: 90%;
-    }
-    
-  }
-  
-  
-  
-  @media screen and (max-width: 850px) {
-  
-    .holder-contact{
-      width: 90%;
-    }
-    .insider{
-      width: 100%;
-    }
-    
-  }
-  
-  
-  @media screen and (max-width: 750px) {
-  
-    .primary,
-    .secondary{
-      height: -moz-fit-content;
-      height: fit-content;
-    }
-  
-    .primary{
-     padding: 3vh;
-    }
-  
-    .primary h1{
-      width: 100%;
-      text-align: center;
-      font-size: 24px;
-    }
-    
-    .primary p{
-      width: 90%;
-      font-size: 16px;
-    }
-    .secondary {
-      position: static;
-    }
-    .insider{
-      flex-direction: column;
-      width: auto;
-    }
-    .form{
-      width: 100%;
-    }
-   
-      .google-map {
-        width: 100%;
-        /* height: 300px; */
-        margin-top: 20px;
-      }
-      .map {
-        padding-left: 0;
-        width: 100%;
-      }
-    }
-    
-  
-  
-  
-  @media screen and (max-width: 360px) {
-    .primary{
-      padding: 2vh;
-    }
-  
-    .primary h1{
-      font-size: 20px;
-    }
-  
-    .contact-form{
-      gap: 10px;
-    }
-  
-    .contact-form input,
-    .contact-form .message{
-      padding: 5px;
-    }
-  
-    .contact-form .message{
-      height: 70px;
-    }
-    .insider{
-      flex-direction: column;
-      /* width: auto; */
-    }
-  }
+
 
 
 
