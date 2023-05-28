@@ -17,6 +17,8 @@ import Items from "./Pages/Dashboard/items/items";
 import Categorydashitem from "./Pages/Dashboard/items/category";
 import Categories from "./Pages/Dashboard/Categories/categories";
 import Reservation from "./Pages/reservation/reservation";
+import Reservations from "./Pages/Dashboard/reservations/reservations";
+import Users from "./Pages/Dashboard/users/user";
 
 
 function App() {
@@ -44,6 +46,10 @@ function App() {
           <Route path="/items" element={<Categorydashitem />} />
           <Route path="/items/:category_id" element={<Items />} />
           <Route path="/categories" element={<Categories />} />
+          <Route path="/reservations" element={<Reservations />} />
+          <Route path="/users" element={<Users />} />
+
+
 
 
             
