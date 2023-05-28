@@ -60,12 +60,13 @@
     color: lightpink;
     outline: none;
   }
+  
   .active {
     transition: all 0.3s ease;
   }
   
   .maintain a:is(:hover, :focus, :focus-visible) {
-    color: white !important;
+    /* color: white !important; */
     outline: none;
   }
   
@@ -86,7 +87,7 @@
   }
   
   .header-icons p:is(:hover, :focus, :focus-visible) {
-    color: purple;
+    color: purple !important;
     outline: none;
   }
   
@@ -103,7 +104,7 @@
   }
   
   .head-icons p:is(:hover, :focus, :focus-visible) {
-    color: white;
+    /* color: white; */
     outline: none;
   }
   

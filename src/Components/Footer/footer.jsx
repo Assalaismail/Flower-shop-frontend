@@ -24,11 +24,7 @@ function Footer() {
     <FontAwesomeIcon icon={faFacebook} />
   </a>
               </div>
-              <div className="icn-wrap">
-              <a href="/">
-    <FontAwesomeIcon icon={faLinkedin} />
-  </a>
-              </div>
+              
               <div className="icn-wrap">
               <a href="/">
     <FontAwesomeIcon icon={faWhatsapp} />
@@ -40,29 +36,35 @@ function Footer() {
         </section>
 
         <section className="clmn-2">
-          <h1>Products</h1>
+          <h1>SITEMAP</h1>
           <ul>
-            <li>
-              <a href="/">hiii</a>
+          <li>
+              <a href="/home">Home</a>
             </li>
             <li>
-              <a href="/">Hello</a>
+              <a href="/shop">Shop</a>
             </li>
             <li>
-              <a href="/"></a>
+              <a href="/reservation">Booking</a>
+            </li>
+            <li>
+              <a href="/aboutUs">About us</a>
+            </li>
+            <li>
+              <a href="/contactus">Contact us</a>
             </li>
           </ul>
         </section>
 
         <section className="clmn-4">
-          <h1>Contact</h1>
+          <h1>LOCATION & CONTACT</h1>
           <ul>
             <li>Lebanon, Beirut Downtown</li>
             <li>
-              <a href="/contactus">Mail us</a>
+              <a href="mailto:ismailassala1@gmail.com">Mail us</a>
             </li>
             <li>
-              <a href="">
+              <a href="https://wa.me/96176176479">
                 WhatsApp
               </a>
             </li>
