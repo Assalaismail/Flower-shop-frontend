@@ -59,6 +59,20 @@ function Order() {
     event.preventDefault();
 
     if (canorder) {
+      if (cartItems.length === 0) {
+        toast.error("The cart is empty. Please add products to your cart.", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+        return;
+      }
+
+      if (!address || !phone_number) {
+        toast.error("Please fill in the address and phone number fields.", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+        return;
+      }
+
       const cartitemid = cartItems.map((item) => item._id);
       const cartquan = cartItems.map((item) => item.quantity);
       const cartname = cartItems.map((item) => item.name);
