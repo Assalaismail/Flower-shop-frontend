@@ -19,6 +19,7 @@ import Categories from "./Pages/Dashboard/Categories/categories";
 import Reservation from "./Pages/reservation/reservation";
 import Reservations from "./Pages/Dashboard/reservations/reservations";
 import Users from "./Pages/Dashboard/users/user";
+import Order from "./Pages/Orders/order";
 
 
 function App() {
@@ -39,6 +40,8 @@ function App() {
             <Route path="/contactus" element={<ContactUs />} />
             <Route path="/register" element={<Register />} />
             <Route path="/reservation" element={<Reservation />} />
+            <Route path="/order" element={<Order />} />
+
 
           </Route>
 

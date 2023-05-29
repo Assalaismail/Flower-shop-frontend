@@ -168,6 +168,8 @@
   .willhidden {
     display: none;
   }
+
+
   @media all and (max-width: 840px) {
     .sticky-header {
       display: flex;

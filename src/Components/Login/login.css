@@ -4,6 +4,10 @@
     align-items: center;
     justify-content: center;
     height: 90.5vh;
+    background-image: url("../../Assets/aboutus1.png");
+    background-size: cover;
+    background-color: white;
+  
   }
 
   

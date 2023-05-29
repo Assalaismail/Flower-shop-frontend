@@ -12,7 +12,7 @@ function Navbar() {
   const [menu, setMenu] = useState("nav-links");
   const [icon, setIcon] = useState("bx bx-menu");
   const location = useLocation();
-
+  const token=sessionStorage.getItem("token")
   useEffect(() => {
     setShow(false);
     setMenu("nav-links");
@@ -47,6 +47,11 @@ function Navbar() {
     setIcon("bx bx-menu");
  
   };
+
+  const handleSignout=()=>{
+    sessionStorage.clear();
+        navigate("/");
+  }
 
   window.addEventListener("scroll", navbar);
 
@@ -89,7 +94,8 @@ function Navbar() {
         </li>
       </ul>
       <div  className={nav ? 'head-icons' : 'header-icons'}>
-        <p onKeyDown={(e) => {
+        {token ?  <p onClick={handleSignout}
+        >Logout</p> : <p onKeyDown={(e) => {
           if (e.keyCode === 13) {
             handleSignClick();
           }
@@ -99,7 +105,8 @@ function Navbar() {
           className="user"
         >
           <i className="ri-user-fill"></i>Sign-in
-        </p>
+        </p>}
+        
         <div className={icon} id="menu-icon" onClick={toggle}></div>
       </div>
     </header>

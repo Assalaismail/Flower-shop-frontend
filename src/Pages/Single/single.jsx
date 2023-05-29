@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import "./single.css";
+import { Link } from "react-router-dom";
 
 function Single() {
   const [item, setItem] = useState(null);
@@ -20,6 +21,35 @@ function Single() {
     getItem();
   }, [id]);
 
+  const saveToLocalStorage = () => {
+    // Get the existing cart items from local storage
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+  
+    // Check if the product is already in the cart
+    const existingCartItemIndex = cartItems.findIndex(
+      (items) => items._id === item._id
+    );
+  
+    if (existingCartItemIndex !== -1) {
+      // If the product is already in the cart, increment its quantity
+      // cartItems[existingCartItemIndex].quantity += quantity;
+    } else {
+      // If the product is not in the cart, add it as a new item
+      const firstImage = item?.image?.url; // Get the image URL
+      cartItems.push({
+        _id: item._id,
+        name: item.name,
+        price: item.price,
+        price_after_discount: item.price_after_discount,
+        image: firstImage, // Add the image URL to the cart item
+      });
+    }
+  
+    // Save the updated cart items to local storage
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  };
+  
+
   return (
     <div>
       <div className="single-item">
@@ -35,9 +65,12 @@ function Single() {
           </div>
           <p>{item?.description}</p>
 
-          <button className="s-btn" onClick={() => navigate("/order")}>
-            Add to Cart
-          </button>
+
+          <Link to={`/order`}>
+                <button className="s-btn" onClick={saveToLocalStorage}>
+                  Add to cart
+                </button>
+              </Link>
         </div>
       </div>
 

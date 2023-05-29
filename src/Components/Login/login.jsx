@@ -38,11 +38,20 @@ function Login() {
           title: "Login successful",
           icon: "success",
         }).then(() => {
-          window.localStorage.setItem("token", response.data.token);
+
+          localStorage.clear();
+          sessionStorage.setItem("token", response.data.token);
           if (response.data.userType === "superAdmin") {
+            {console.log(response.data)}
+            sessionStorage.setItem('id', response.data._id);
+            sessionStorage.setItem('token', response.data.token);
+            sessionStorage.setItem('userType', response.data.userType);
             window.location.href = "/items";
           } else if (response.data.userType === "user") {
             window.location.href = "/shop";
+            sessionStorage.setItem('id', response.data._id);
+            sessionStorage.setItem('token', response.data.token);
+            sessionStorage.setItem('userType', response.data.userType);
           } else {
             window.location.href = "/";
           }
