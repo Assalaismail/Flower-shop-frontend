@@ -36,6 +36,36 @@ function Shop(props) {
     getProducts();
   }, [getProducts]);
 
+
+
+  const saveToLocalStorage = () => {
+    // Get the existing cart items from local storage
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+  
+    // Check if the product is already in the cart
+    const existingCartItemIndex = cartItems.findIndex(
+      (items) => items._id === item._id
+    );
+  
+    if (existingCartItemIndex !== -1) {
+      // If the product is already in the cart, increment its quantity
+      // cartItems[existingCartItemIndex].quantity += quantity;
+    } else {
+      // If the product is not in the cart, add it as a new item
+      const firstImage = item?.image?.url; // Get the image URL
+      cartItems.push({
+        _id: item._id,
+        name: item.name,
+        price: item.price,
+        price_after_discount: item.price_after_discount,
+        image: firstImage, // Add the image URL to the cart item
+      });
+    }
+  
+    // Save the updated cart items to local storage
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  };
+
   return (
     <div>
       <p className="p1">
@@ -79,7 +109,7 @@ function Shop(props) {
                     Details
                   </button>
 
-                  <button>Add to Cart</button>
+                  <button onClick={saveToLocalStorage}>Add to Cart</button>
                 </div>
               </div>
             </div>

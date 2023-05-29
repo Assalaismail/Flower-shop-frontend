@@ -4,6 +4,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./order.css";
 
+
 function Order() {
   const [cartItems, setCartItems] = useState(
     JSON.parse(localStorage.getItem("cartItems")) || []
@@ -126,6 +127,13 @@ function Order() {
   };
 
   function clearLocalStorage() {
+    if (cartItems.length === 0) {
+      swal("No products to delete.", {
+        icon: "info",
+      });
+      return;
+    }
+  
     swal({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -135,16 +143,16 @@ function Order() {
     }).then((willDelete) => {
       if (willDelete) {
         localStorage.clear();
-        window.location.reload();
-        swal("Poof! Your file has been deleted!", {
+        setCartItems([]); // Clear cartItems state
+        swal("Poof! Your order has been deleted!", {
           icon: "success",
         });
-        window.location.reload();
       } else {
-        swal("Your Order is safe!");
+        swal("Your order is safe!");
       }
     });
   }
+  
 
   function handleProductClick(id) {
     swal({
@@ -181,6 +189,14 @@ function Order() {
           {cartItems.map((item, index) => (
             <div className="order-det" key={item._id}>
               <div className="order-writing">
+
+          
+              <div className="trashhOrder">
+                  <button
+                    className="delete-icon"
+                    onClick={() => handleProductClick(item._id)}
+                  >x</button>
+                </div>
                 <img
                   src={item.image}
                   alt="Product Image"
@@ -215,6 +231,7 @@ function Order() {
                     +
                   </button>
                 </div>
+                
               </div>
               <div className="order-total-price">
                 <p>Total: {item.price_after_discount * item.quantity}$</p>
@@ -271,8 +288,12 @@ function Order() {
             >
               Place Order
             </button>
+            <button className="orderalldelete" onClick={() => clearLocalStorage()}>
+          Delete Order
+        </button>
           </div>
         </form>
+        
       </div>
     </>
   );

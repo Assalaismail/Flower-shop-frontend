@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 import "./single.css";
 import { Link } from "react-router-dom";
 
 function Single() {
   const [item, setItem] = useState(null);
-  const {id} = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     const getItem = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/item/getflower/${id}`);
+        const response = await axios.get(
+          `http://localhost:5000/item/getflower/${id}`
+        );
         setItem(response.data);
       } catch (error) {
         console.error(error);
@@ -22,33 +25,69 @@ function Single() {
   }, [id]);
 
   const saveToLocalStorage = () => {
-    // Get the existing cart items from local storage
-    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-  
-    // Check if the product is already in the cart
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
     const existingCartItemIndex = cartItems.findIndex(
       (items) => items._id === item._id
     );
-  
+
     if (existingCartItemIndex !== -1) {
-      // If the product is already in the cart, increment its quantity
-      // cartItems[existingCartItemIndex].quantity += quantity;
+      swal({
+        title: "Item already in cart",
+        text: "Do you want to continue shopping or view the cart?",
+        icon: "info",
+        buttons: {
+          continueShopping: {
+            text: "Continue Shopping",
+            value: "continueShopping",
+          },
+          viewCart: {
+            text: "View Cart",
+            value: "viewCart",
+          },
+        },
+      }).then((value) => {
+        if (value === "continueShopping") {
+          navigate("/shop"); // Navigate to the shop page
+        } else if (value === "viewCart") {
+          navigate("/order"); // Navigate to the order/cart page
+        }
+      });
     } else {
-      // If the product is not in the cart, add it as a new item
-      const firstImage = item?.image?.url; // Get the image URL
+      const firstImage = item?.image?.url;
       cartItems.push({
         _id: item._id,
         name: item.name,
         price: item.price,
         price_after_discount: item.price_after_discount,
-        image: firstImage, // Add the image URL to the cart item
+        image: firstImage,
+      });
+
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+      swal({
+        title: "Item added to cart",
+        text: "Do you want to continue shopping or view the cart?",
+        icon: "success",
+        buttons: {
+          continueShopping: {
+            text: "Continue Shopping",
+            value: "continueShopping",
+          },
+          viewCart: {
+            text: "View Cart",
+            value: "viewCart",
+          },
+        },
+      }).then((value) => {
+        if (value === "continueShopping") {
+          navigate("/shop"); 
+        } else if (value === "viewCart") {
+          navigate("/order"); 
+        }
       });
     }
-  
-    // Save the updated cart items to local storage
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
   };
-  
 
   return (
     <div>
