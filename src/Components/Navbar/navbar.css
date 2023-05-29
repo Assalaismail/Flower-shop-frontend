@@ -65,10 +65,6 @@
     transition: all 0.3s ease;
   }
   
-  .maintain a:is(:hover, :focus, :focus-visible) {
-    /* color: white !important; */
-    outline: none;
-  }
   
   .nav-links li a.active {
     color: lightpink !important;

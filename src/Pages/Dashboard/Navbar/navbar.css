@@ -46,7 +46,7 @@
   }
   
   .maintain a:is(:hover, :focus, :focus-visible) {
-    color: white !important;
+    /* color: white !important; */
     outline: none;
   }
   

@@ -35,7 +35,7 @@ function Single() {
           </div>
           <p>{item?.description}</p>
 
-          <button className="s-btn" onClick={() => navigate("/cart")}>
+          <button className="s-btn" onClick={() => navigate("/order")}>
             Add to Cart
           </button>
         </div>

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback, useReducer } from "react";
 import axios from "axios";
 import swal from "sweetalert";
-
 import { useNavigate } from "react-router";
 import "../items/items.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -172,9 +171,6 @@ const refreshItems = useCallback(async () => {
 
   const handleCancelItemButtonClick = () => {
     setShowPopup(false);
-   
-
-   
   };
 
   const handleImageChange = async (event) => {
