@@ -66,11 +66,11 @@ function Single() {
           <p>{item?.description}</p>
 
 
-          <Link to={`/order`}>
+         
                 <button className="s-btn" onClick={saveToLocalStorage}>
                   Add to cart
                 </button>
-              </Link>
+            
         </div>
       </div>
 

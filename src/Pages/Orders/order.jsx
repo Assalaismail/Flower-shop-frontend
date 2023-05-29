@@ -8,46 +8,45 @@ function Order() {
   const [cartItems, setCartItems] = useState(
     JSON.parse(localStorage.getItem("cartItems")) || []
   );
-  const [quantity, setQuantity] = useState(1);
-  const [totallPrice, setTotalPrice] = useState();
   const [phone_number, setPhone_number] = useState("");
   const [address, setAddress] = useState("");
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    setCartItems((prevCartItems) =>
+      prevCartItems.map((item) => ({ ...item, quantity: 1 }))
+    );
+  }, []);
 
   function deleteProductFromLocalStorage(id) {
     const updatedProducts = cartItems.filter((product) => product._id !== id);
     localStorage.setItem("cartItems", JSON.stringify(updatedProducts));
   }
+
   const [canorder, setcanorder] = useState(true);
 
   function checkUserRole() {
     const userRole = sessionStorage.getItem("userType");
     const token = sessionStorage.getItem("token");
 
-    // Get the user's role from session storage
     if (!token || !userRole) {
-      // User has the 'user' role, so navigate to the desired page
-
       setcanorder(false);
     } else {
       setcanorder(true);
     }
   }
 
+  const handleQuantityChange = (index, quantity) => {
+    const updatedCartItems = [...cartItems];
+    updatedCartItems[index].quantity = quantity;
+    setCartItems(updatedCartItems);
+  };
+
   const totalcalculator = () => {
-    // Calculate the total price
-    const cartquan = cartItems.map((item) => item.quantity);
-    const cartprice = cartItems.map((item) => item.price_after_discount);
-    var total = 0;
-    const carttwo = [];
-    for (let i = 0; i < cartquan.length; i++) {
-      const item = {};
-
-      item.price = cartprice[i];
-      item.totalprice = cartprice[i];
-      carttwo.push(item);
-      total += item.totalprice;
-    }
-
+    const total = cartItems.reduce(
+      (acc, item) => acc + item.price_after_discount * item.quantity,
+      0
+    );
     setTotalPrice(total);
   };
 
@@ -64,24 +63,21 @@ function Order() {
       const cartquan = cartItems.map((item) => item.quantity);
       const cartname = cartItems.map((item) => item.name);
       const cartimage = cartItems.map((item) => item.image);
-
       const cartprice = cartItems.map((item) => item.price_after_discount);
       var total = 0;
       const cart = [];
       for (let i = 0; i < cartquan.length; i++) {
         const item = {};
         item.productID = cartitemid[i];
-
         item.name = cartname[i];
         item.image = cartimage[i];
         item.quantity = cartquan[i];
         item.price = cartprice[i];
-        item.totalprice = cartprice[i];
+        item.totalprice = cartquan[i] * cartprice[i];
         cart.push(item);
         total += item.totalprice;
       }
 
-      // event.preventDefault();
       const response = await fetch("http://localhost:5000/order", {
         method: "POST",
         headers: {
@@ -97,13 +93,13 @@ function Order() {
       });
       const data = await response.json();
 
-      toast.success("your order is sent ", {
+      toast.success("Your order is sent", {
         position: toast.POSITION.TOP_RIGHT,
       });
       localStorage.clear();
       delayedRefresh();
     } else {
-      toast.error("please sign in to continue this order", {
+      toast.error("Please sign in to continue this order", {
         position: toast.POSITION.TOP_RIGHT,
       });
     }
@@ -135,6 +131,7 @@ function Order() {
       }
     });
   }
+
   function handleProductClick(id) {
     swal({
       title: "Are you sure?",
@@ -157,7 +154,8 @@ function Order() {
       }
     });
   }
-  useEffect(() => {}, [totallPrice]);
+
+  useEffect(() => {}, [totalPrice]);
 
   return (
     <>
@@ -166,7 +164,7 @@ function Order() {
 
       <div className="orders-div">
         <div className="order-style">
-          {cartItems.map((item) => (
+          {cartItems.map((item, index) => (
             <div className="order-det" key={item._id}>
               <div className="order-writing">
                 <img
@@ -177,69 +175,90 @@ function Order() {
                 <div className="order-title-desOrder">
                   <h2>{item.name}</h2>
                 </div>
-
                 <p className="desOrder"> {item.price_after_discount}$</p>
-                <div className="quantity"></div>
+                <div className="quantity">
+                  <button
+                    onClick={() =>
+                      handleQuantityChange(
+                        index,
+                        item.quantity - 1 >= 1 ? item.quantity - 1 : 1
+                      )
+                    }
+                  >
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    min="1"
+                    value={item.quantity}
+                    onChange={(e) =>
+                      handleQuantityChange(index, parseInt(e.target.value))
+                    }
+                  />
+                  <button
+                    onClick={() => handleQuantityChange(index, item.quantity + 1)}
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+              <div className="order-total-price">
+                <p>Total: {item.price_after_discount * item.quantity}$</p>
               </div>
             </div>
           ))}
         </div>
 
         <form className="order-form">
-              <div>
-                <label htmlFor="name" className="res-label">
-                  Phone Number:
-                </label>
-                <input
-                  type="text"
-                  id="phone_number"
-                  name="phone_number"
-                  value={phone_number}
-                  onChange={(e) => setPhone_number(e.target.value)}
-                  className="res-input"
-                />
-              </div>
-              <br></br>
-              <div>
-                <label htmlFor="phone_nb" className="res-label">
-                  Address in details:
-                </label>
-                <input
-                  type="text"
-                  id="address"
-                  name="address"
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                  className="res-input"
-                  required
-                />
-              </div>
-              <br></br>
-              <div className="order-total">
           <div>
-            <h2>Total:</h2>
+            <label htmlFor="name" className="res-label">
+              Phone Number:
+            </label>
+            <input
+              type="text"
+              id="phone_number"
+              name="phone_number"
+              value={phone_number}
+              onChange={(e) => setPhone_number(e.target.value)}
+              className="res-input"
+            />
           </div>
+          <br></br>
           <div>
-            <p>{totallPrice} $</p>
+            <label htmlFor="phone_nb" className="res-label">
+              Address in details:
+            </label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              className="res-input"
+              required
+            />
           </div>
-        </div>
-        <br></br>
-              <div>
-              <button
-          className="order-check"
-          onClick={(event) => {
-            handleSubmit(event);
-          }}
-        >
-          Place Order
-        </button>
-              </div>
-              </form>
-
-
-        
-     
-        
+          <br></br>
+          <div className="order-total">
+            <div>
+              <h2>Total:</h2>
+            </div>
+            <div>
+              <p>{totalPrice} $</p>
+            </div>
+          </div>
+          <br></br>
+          <div>
+            <button
+              className="order-check"
+              onClick={(event) => {
+                handleSubmit(event);
+              }}
+            >
+              Place Order
+            </button>
+          </div>
+        </form>
       </div>
     </>
   );
