@@ -10,7 +10,7 @@ function Ordersdash() {
 
   const getOrders = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/order");
+      const response = await axios.get("https://flower-shop.onrender.com/order");
       setOrders(response.data);
     } catch (error) {
       console.error(error);
@@ -39,7 +39,7 @@ function Ordersdash() {
       dangerMode: true,
     }).then(async (willDelete) => {
       if (willDelete) {
-        await axios.delete(`http://localhost:5000/order/${id}`);
+        await axios.delete(`https://flower-shop.onrender.com/order/${id}`);
         getOrders();
         swal("Poof! The order has been deleted!", {
           icon: "success",

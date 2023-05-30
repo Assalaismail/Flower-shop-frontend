@@ -37,7 +37,7 @@ function Reservation() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/res/reservations",
+        "https://flower-shop.onrender.com/res/reservations",
         reservationData
       );
 

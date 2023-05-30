@@ -44,7 +44,7 @@ function EditItem(props) {
       discount_per: discountPer,
     };
     try {
-      await axios.put(`http://localhost:5000/item/updflower/${itemid}`, updatedItem);
+      await axios.put(`https://flower-shop.onrender.com/item/updflower/${itemid}`, updatedItem);
       props.onClose();
       setShowPopup(false);
   

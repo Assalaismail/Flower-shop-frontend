@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback , useReducer } from "react";
+import React, { useState, useEffect, useCallback, useReducer } from "react";
 import axios from "axios";
 import swal from "sweetalert";
 
@@ -12,27 +12,28 @@ import PopupCategory from "./popcategory";
 function Categories(props) {
   const [refresh, setRefresh] = useReducer((x) => x + 1, 0);
 
-    const [category, setCategory] = useState([]);
-    const [selectedCategoryId, setSelectedCategoryId] = useState("");
-    const [products, setProducts] = useState("");
-    const [showPopup, setShowPopup] = useState(false);
+  const [category, setCategory] = useState([]);
+  const [selectedCategoryId, setSelectedCategoryId] = useState("");
+  const [products, setProducts] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
   const [name_category, setName_category] = useState("");
 
-
-    const [showEditPopup, setShowEditPopup] = useState(false);
+  const [showEditPopup, setShowEditPopup] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
-  
-    const getcategories = async () => {
-      try {
-        const response = await axios.get("http://localhost:5000/category/getcategory");
-        setCategory(response.data);
-      } catch (error) {
-        console.error(error);
-      }
+
+  const getcategories = async () => {
+    try {
+      const response = await axios.get(
+        "https://flower-shop.onrender.com/category/getcategory"
+      );
+      setCategory(response.data);
+    } catch (error) {
+      console.error(error);
     }
-    useEffect(() => {
-        getcategories();
-      }, []);
+  };
+  useEffect(() => {
+    getcategories();
+  }, []);
 
   //delete item
   const deleteUser = async (id) => {
@@ -53,7 +54,7 @@ function Categories(props) {
       dangerMode: true,
     }).then(async (willDelete) => {
       if (willDelete) {
-        await axios.delete(`http://localhost:5000/category/delcategory/${id}`);
+        await axios.delete(`https://flower-shop.onrender.com/category/delcategory/${id}`);
         getcategories();
         swal("Poof! The category has been deleted!", {
           icon: "success",
@@ -64,79 +65,76 @@ function Categories(props) {
     });
   };
 
+  // add new category
+  const addCategory = async () => {
+    const categoryData = {
+      name_category: name_category,
+    };
 
-   // add new category
-const addCategory = async () => {
-  const categoryData = {
-    name_category: name_category
+    try {
+      await axios.post(
+        "https://flower-shop.onrender.com/category/addcategory",
+        categoryData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            // Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      setRefresh();
+      getcategories();
+      setShowPopup(false);
+
+      swal({
+        title: "Item added successfully!",
+        icon: "success",
+      });
+
+      setName_category("");
+    } catch (error) {
+      console.error(error);
+      swal({
+        title: "Oops!",
+        text: "Something went wrong. Please try again later.",
+        icon: "error",
+      });
+    }
   };
-
-  try {
-    await axios.post("http://localhost:5000/category/addcategory", categoryData, {
-      headers: {
-        "Content-Type": "application/json",
-        // Authorization: `Bearer ${token}`,
-      },
-    });
-
-    setRefresh();
-    getcategories();
-    setShowPopup(false);
-
-    swal({
-      title: "Item added successfully!",
-      icon: "success",
-    });
-
-    setName_category("");
-  } catch (error) {
-    console.error(error);
-    swal({
-      title: "Oops!",
-      text: "Something went wrong. Please try again later.",
-      icon: "error",
-    });
-  }
-};
-
 
   const submitHandler = (e) => {
     e.preventDefault();
     addCategory();
   };
 
-    ///////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////
   // Define a callback function to refresh the items
-const refreshItems = useCallback(async () => {
-  await getcategories();
-}, [getcategories]);
+  const refreshItems = useCallback(async () => {
+    await getcategories();
+  }, [getcategories]);
   ///////////////////////////////////////////////////////////
 
+  // open the EditItemPopup component with the selected item
+  const handleEditButtonClick = (item) => {
+    setSelectedItem(item);
+    setShowEditPopup(true);
+  };
 
-    // open the EditItemPopup component with the selected item
-    const handleEditButtonClick = (item) => {
-      setSelectedItem(item);
-      setShowEditPopup(true);
-    };
-  
-    // close the EditItemPopup component
-    const handleEditPopupClose = () => {
-      setShowEditPopup(false);
-    };
+  // close the EditItemPopup component
+  const handleEditPopupClose = () => {
+    setShowEditPopup(false);
+  };
 
-    const handleAddItemButtonClick = () => {
-      setShowPopup(true);
-    };
+  const handleAddItemButtonClick = () => {
+    setShowPopup(true);
+  };
 
-    const handleCancelItemButtonClick = () => {
-      setShowPopup(false);
-     
-  
-     
-    };
+  const handleCancelItemButtonClick = () => {
+    setShowPopup(false);
+  };
 
   return (
-
     <div className="tbl-wrper-category">
       <div class="container-add-itemmm">
         <button onClick={handleAddItemButtonClick} className="add-itemmm">
@@ -146,7 +144,6 @@ const refreshItems = useCallback(async () => {
       <table className="table-category">
         <thead>
           <tr className="first-category--">
-            
             <th>Name</th>
             <th>Delete</th>
             <th>Edit</th>
@@ -157,8 +154,6 @@ const refreshItems = useCallback(async () => {
             category.map((item, index) => {
               return (
                 <tr className="" key={index}>
-               
-          
                   <td className="category-name"> {item.name_category} </td>
                   <td>
                     <button
@@ -191,16 +186,15 @@ const refreshItems = useCallback(async () => {
         />
       )}
       {showEditPopup && (
-  <EditCategory
-    onClose={handleEditPopupClose}
-    item={selectedItem}
-    refreshItems={refreshItems} // Pass the refreshItems callback
-  />
-)}
+        <EditCategory
+          onClose={handleEditPopupClose}
+          item={selectedItem}
+          refreshItems={refreshItems} // Pass the refreshItems callback
+        />
+      )}
 
-
-{/* for the add item popup */}
-<PopupCategory trigger={showPopup} setTrigger={() => setShowPopup(false)}>
+      {/* for the add item popup */}
+      <PopupCategory trigger={showPopup} setTrigger={() => setShowPopup(false)}>
         <div className="inputs-add-products">
           <div className="container-items-x">
             <h2 className="title-edit">Add Item:</h2>
@@ -223,8 +217,6 @@ const refreshItems = useCallback(async () => {
             value={name_category}
             onChange={(e) => setName_category(e.target.value)}
           />
-
-         
         </div>
         <div className="btn-pop-wrapper">
           <button className="btn-add-item" onClick={submitHandler}>

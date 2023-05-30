@@ -14,7 +14,7 @@ function Single() {
     const getItem = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/item/getflower/${id}`
+          `https://flower-shop.onrender.com/item/getflower/${id}`
         );
         setItem(response.data);
       } catch (error) {

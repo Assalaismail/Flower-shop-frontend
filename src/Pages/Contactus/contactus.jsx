@@ -50,7 +50,7 @@ const ContactUs = () => {
     await sendEmail(e);
 
     try {
-      await axios.post("http://localhost:5000/contactus", newContact);
+      await axios.post("https://flower-shop.onrender.com/contactus", newContact);
       setmyData({
         fullName: "",
         mail: "",

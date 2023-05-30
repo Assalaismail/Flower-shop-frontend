@@ -33,7 +33,7 @@ function EditCategory(props) {
     };
     try {
       await axios.put(
-        `http://localhost:5000/category/updcategory/${itemid}`,
+        `https://flower-shop.onrender.com/category/updcategory/${itemid}`,
         updatedItem
       );
       props.onClose();

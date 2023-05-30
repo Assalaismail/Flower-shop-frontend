@@ -17,13 +17,13 @@ function Shop(props) {
     try {
       if (categoryId === "") {
         const response = await axios.get(
-          "http://localhost:5000/item/getflower"
+          "https://flower-shop.onrender.com/item/getflower"
         );
         setProduct(response.data);
         setItem(response.data);
       } else {
         const response = await axios.get(
-          `http://localhost:5000/item/items/${categoryId}`
+          `https://flower-shop.onrender.com/item/items/${categoryId}`
         );
         setProduct(response.data);
       }

@@ -7,7 +7,7 @@ function Users() {
 
   const getusers = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/user/get");
+      const response = await axios.get("https://flower-shop.onrender.com/user/get");
       setUser(response.data);
     } catch (error) {
       console.error(error);

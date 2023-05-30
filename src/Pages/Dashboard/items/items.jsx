@@ -31,13 +31,13 @@ function Items(props) {
     try {
       if (categoryId === "") {
         const response = await axios.get(
-          "http://localhost:5000/item/getflower"
+          "https://flower-shop.onrender.com/item/getflower"
         );
         setProduct(response.data);
         setItem(response.data);
       } else {
         const response = await axios.get(
-          `http://localhost:5000/item/items/${categoryId}`
+          `https://flower-shop.onrender.com/item/items/${categoryId}`
         );
         setProduct(response.data);
       }
@@ -49,7 +49,7 @@ function Items(props) {
   const getcategories = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/category/getcategory"
+        "https://flower-shop.onrender.com/category/getcategory"
       );
       setCategory(response.data);
     } catch (error) {
@@ -84,7 +84,7 @@ const refreshItems = useCallback(async () => {
 
     try {
       await axios
-        .post("http://localhost:5000/item/addflower", formData, {
+        .post("https://flower-shop.onrender.com/item/addflower", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
             // Authorization: `Bearer ${token}`,
@@ -143,7 +143,7 @@ const refreshItems = useCallback(async () => {
       dangerMode: true,
     }).then(async (willDelete) => {
       if (willDelete) {
-        await axios.delete(`http://localhost:5000/item/delflower/${id}`);
+        await axios.delete(`https://flower-shop.onrender.com/item/delflower/${id}`);
         getProducts(categoryId);
         swal("Poof! The item has been deleted!", {
           icon: "success",

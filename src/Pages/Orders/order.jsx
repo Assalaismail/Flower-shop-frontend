@@ -92,7 +92,7 @@ function Order() {
         total += item.totalprice;
       }
 
-      const response = await fetch("http://localhost:5000/order", {
+      const response = await fetch("https://flower-shop.onrender.com/order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

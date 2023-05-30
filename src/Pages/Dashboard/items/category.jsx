@@ -11,7 +11,7 @@ function Categorydashitem() {
 
   const getcategories = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/category/getcategory");
+      const response = await axios.get("https://flower-shop.onrender.com/category/getcategory");
       setCategory(response.data);
     } catch (error) {
       console.error(error);
@@ -20,7 +20,7 @@ function Categorydashitem() {
 
   const getallitems= async () => {
     try {
-      const response = await axios.get("http://localhost:5000/item/getflower");
+      const response = await axios.get("https://flower-shop.onrender.com/item/getflower");
       setProducts(response.data);
     } catch (error) {
       console.error(error);
