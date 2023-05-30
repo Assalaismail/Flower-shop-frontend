@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import "./single.css";
-import { Link } from "react-router-dom";
+
 
 function Single() {
   const [item, setItem] = useState(null);
@@ -48,9 +48,9 @@ function Single() {
         },
       }).then((value) => {
         if (value === "continueShopping") {
-          navigate("/shop"); // Navigate to the shop page
+          navigate("/shop"); 
         } else if (value === "viewCart") {
-          navigate("/order"); // Navigate to the order/cart page
+          navigate("/order"); 
         }
       });
     } else {
@@ -103,9 +103,6 @@ function Single() {
             <h3>${item?.price_after_discount}</h3>
           </div>
           <p>{item?.description}</p>
-
-
-         
                 <button className="s-btn" onClick={saveToLocalStorage}>
                   Add to cart
                 </button>

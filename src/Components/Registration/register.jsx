@@ -23,6 +23,15 @@ function Register() {
   const handleRegisterSubmit = async (event) => {
     event.preventDefault();
 
+    if (!name || !email || !password) {
+      swal({
+        title: "Error",
+        text: "Please fill in all the fields",
+        icon: "error",
+      });
+      return;
+    }
+
     try {
       const response = await axios.post("http://localhost:5000/user/signup", {
         name,

@@ -4,7 +4,6 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./order.css";
 
-
 function Order() {
   const [cartItems, setCartItems] = useState(
     JSON.parse(localStorage.getItem("cartItems")) || []
@@ -133,7 +132,7 @@ function Order() {
       });
       return;
     }
-  
+
     swal({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -152,7 +151,6 @@ function Order() {
       }
     });
   }
-  
 
   function handleProductClick(id) {
     swal({
@@ -181,119 +179,102 @@ function Order() {
 
   return (
     <>
+    
       <ToastContainer />
-      <p className="Orders-page">Your Order</p>
-
-      <div className="orders-div">
-        <div className="order-style">
-          {cartItems.map((item, index) => (
-            <div className="order-det" key={item._id}>
-              <div className="order-writing">
-
+      <div className="orderss">
+      <div className="order-container">
+        
+        <table className="products-table">
           
-              <div className="trashhOrder">
-                  <button
-                    className="delete-icon"
-                    onClick={() => handleProductClick(item._id)}
-                  >x</button>
-                </div>
-                <img
-                  src={item.image}
-                  alt="Product Image"
-                  className="product-image"
-                />
-                <div className="order-title-desOrder">
-                  <h2>{item.name}</h2>
-                </div>
-                <p className="desOrder"> {item.price_after_discount}$</p>
-                <div className="quantity">
-                  <button
-                    onClick={() =>
-                      handleQuantityChange(
-                        index,
-                        item.quantity - 1 >= 1 ? item.quantity - 1 : 1
-                      )
-                    }
-                  >
-                    -
+          <tbody className="product-row" >
+            {cartItems.map((item, index) => (
+
+              <tr className="product-row" key={item._id}>
+             
+                <td className="img-order">
+                  <img src={item.image} alt="Product" className="img-order" />
+                </td>
+                <td className="orderName">{item.name}</td>
+                <td className="orderPrice">{item.price_after_discount}$</td>
+                <td>
+                  <div className="quantity">
+                    <button
+                      onClick={() =>
+                        handleQuantityChange(
+                          index,
+                          item.quantity - 1 >= 1 ? item.quantity - 1 : 1
+                        )
+                      }
+                    >
+                      -
+                    </button>
+                    <input
+                      type="number"
+                      min="1"
+                      value={item.quantity}
+                      onChange={(e) =>
+                        handleQuantityChange(index, parseInt(e.target.value))
+                      }
+                    />
+                    <button
+                      onClick={() => handleQuantityChange(index, item.quantity + 1)}
+                    >
+                      +
+                    </button>
+                  </div>
+                </td>
+                <td className="totalOrder">Total: {item.price_after_discount * item.quantity}$</td>
+                <td>
+                  <button className="orderDelete" onClick={() => handleProductClick(item._id)}>
+                    x
                   </button>
-                  <input
-                    type="number"
-                    min="1"
-                    value={item.quantity}
-                    onChange={(e) =>
-                      handleQuantityChange(index, parseInt(e.target.value))
-                    }
-                  />
-                  <button
-                    onClick={() => handleQuantityChange(index, item.quantity + 1)}
-                  >
-                    +
-                  </button>
-                </div>
-                
-              </div>
-              <div className="order-total-price">
-                <p>Total: {item.price_after_discount * item.quantity}$</p>
-              </div>
-            </div>
-          ))}
-        </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
 
         <form className="order-form">
+          <div><h1 className="h1-order">Order Details</h1></div>
           <div>
-            <label htmlFor="name" className="res-label">
-              Phone Number:
-            </label>
+            <label htmlFor="phone_number" className="label-order">Phone Number:</label>
             <input
               type="text"
               id="phone_number"
-              name="phone_number"
               value={phone_number}
+              className="input-order"
               onChange={(e) => setPhone_number(e.target.value)}
-              className="res-input"
             />
           </div>
-          <br></br>
           <div>
-            <label htmlFor="phone_nb" className="res-label">
-              Address in details:
-            </label>
+            <label htmlFor="address" className="label-order">Address:</label>
             <input
               type="text"
               id="address"
-              name="address"
               value={address}
+              className="input-order"
               onChange={(e) => setAddress(e.target.value)}
-              className="res-input"
-              required
             />
           </div>
-          <br></br>
           <div className="order-total">
             <div>
-              <h2>Total:</h2>
+              <h2 className="total">Total:</h2>
             </div>
             <div>
               <p>{totalPrice} $</p>
             </div>
           </div>
           <br></br>
-          <div>
-            <button
-              className="order-check"
-              onClick={(event) => {
-                handleSubmit(event);
-              }}
-            >
+          <div className="buttons">
+          <button type="submit" onClick={handleSubmit} className="submitorderbutton">
               Place Order
             </button>
-            <button className="orderalldelete" onClick={() => clearLocalStorage()}>
-          Delete Order
-        </button>
+            <button type="button" onClick={clearLocalStorage} className="delorderbutton">
+              Clear Order
+            </button>
           </div>
         </form>
-        
+      </div>
       </div>
     </>
   );

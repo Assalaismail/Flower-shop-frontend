@@ -136,7 +136,7 @@ footer {
       gap: 10px;
     }
     .footer-main section ul li {
-      font-size: clamp(0.5625rem, -0.7708rem + 6.6667vw, 1.0625rem);
+      font-size: clamp(1rem, -0.7708rem + 6.6667vw, 1.0625rem);
     }
   
     footer {
@@ -149,6 +149,7 @@ footer {
       font-size: x-small;
       text-align: center;
       padding: 5%;
+      padding-top: 10px;
     }
 
     ul li {
@@ -158,5 +159,14 @@ footer {
       .footer-main a {
         text-decoration: none;
       }
-  }
+
+      .lebanon{
+        margin-top: 10px;
+      }
+
+      .whatsapp{
+        margin-bottom: 15px;
+      }
+
+    }
   

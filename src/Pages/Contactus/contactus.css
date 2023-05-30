@@ -53,10 +53,11 @@
     font-size: 1.5rem;
     padding: 10px 20px;
     border: 2px solid lightpink;
-    box-shadow: 3px 3px grey;
+    /* box-shadow: 3px 3px grey; */
     margin-bottom: 30px;
     color: darkslategray;
     font-weight: 900;
+    width: 150px;
   }
   .form{
     width: 35%;
@@ -175,11 +176,127 @@
   }
 
   .insider{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    gap: 30px;
+  }
+}
+
+@media all and (min-width: 770px) and (max-width: 926px) {
+
+  .insider{
     width: 77%;
     margin: 0 auto;
     display: flex;
     gap: 30px;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 /* Tablet styles */

@@ -19,6 +19,16 @@ function Login() {
 
   const handleLoginSubmit = async (event) => {
     event.preventDefault();
+
+    if (!email || !password) {
+      swal({
+        title: "Error",
+        text: "Please fill in all the fields",
+        icon: "error",
+      });
+      return;
+    }
+
     try {
       const response = await axios.post(
         "http://localhost:5000/user/login",

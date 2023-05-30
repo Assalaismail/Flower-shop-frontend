@@ -59,11 +59,11 @@ function Footer() {
         <section className="clmn-4">
           <h1>LOCATION & CONTACT</h1>
           <ul>
-            <li>Lebanon, Beirut Downtown</li>
+            <li className="lebanon">Lebanon, Beirut Downtown</li>
             <li>
               <a href="mailto:ismailassala1@gmail.com">Mail us</a>
             </li>
-            <li>
+            <li className="whatsapp">
               <a href="https://wa.me/96176176479">
                 WhatsApp
               </a>

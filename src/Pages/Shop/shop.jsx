@@ -48,17 +48,16 @@ function Shop(props) {
     );
   
     if (existingCartItemIndex !== -1) {
-      // If the product is already in the cart, increment its quantity
-      // cartItems[existingCartItemIndex].quantity += quantity;
+      
     } else {
-      // If the product is not in the cart, add it as a new item
+     
       const firstImage = item?.image?.url; // Get the image URL
       cartItems.push({
         _id: item._id,
         name: item.name,
         price: item.price,
         price_after_discount: item.price_after_discount,
-        image: firstImage, // Add the image URL to the cart item
+        image: firstImage, 
       });
     }
   

@@ -20,6 +20,7 @@ import Reservation from "./Pages/reservation/reservation";
 import Reservations from "./Pages/Dashboard/reservations/reservations";
 import Users from "./Pages/Dashboard/users/user";
 import Order from "./Pages/Orders/order";
+import Ordersdash from "./Pages/Dashboard/orders/orders";
 
 
 function App() {
@@ -51,6 +52,8 @@ function App() {
           <Route path="/categories" element={<Categories />} />
           <Route path="/reservations" element={<Reservations />} />
           <Route path="/users" element={<Users />} />
+          <Route path="/orders" element={<Ordersdash />} />
+
 
 
 
