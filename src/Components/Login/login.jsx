@@ -30,6 +30,7 @@ function Login() {
     }
 
     try {
+      
       const response = await axios.post(
         "http://localhost:5000/user/login",
         {
@@ -40,9 +41,9 @@ function Login() {
           headers: {
             "Content-Type": "application/json",
           },
-        }
+        },
       );
-
+      
       if (response.status === 200) {
         swal({
           title: "Login successful",
@@ -66,7 +67,14 @@ function Login() {
             window.location.href = "/";
           }
         });
-      } else {
+      } else if(response.status === 401){
+        swal({
+          title: "Login failed",
+          text: response.data.message,
+          icon: "error",
+        });
+
+      } else{
         swal({
           title: "Login failed",
           text: response.data.message,
