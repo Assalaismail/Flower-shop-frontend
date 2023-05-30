@@ -31,7 +31,6 @@ function Register() {
       });
       return;
     }
-
     try {
       const response = await axios.post("https://flower-shop.onrender.com/user/signup", {
         name,
