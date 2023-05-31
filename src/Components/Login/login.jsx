@@ -19,7 +19,7 @@ function Login() {
 
   const handleLoginSubmit = async (event) => {
     event.preventDefault();
-
+  
     if (!email || !password) {
       swal({
         title: "Error",
@@ -28,9 +28,8 @@ function Login() {
       });
       return;
     }
-
+  
     try {
-      
       const response = await axios.post(
         "https://flower-shop.onrender.com/user/login",
         {
@@ -41,38 +40,31 @@ function Login() {
           headers: {
             "Content-Type": "application/json",
           },
-        },
+        }
       );
-      
+  
       if (response.data.message === "User exists") {
         swal({
           title: "Login successful",
           icon: "success",
         }).then(() => {
-
           localStorage.clear();
           sessionStorage.setItem("token", response.data.token);
+          sessionStorage.setItem("id", response.data._id);
+          sessionStorage.setItem("userType", response.data.userType);
+  
           if (response.data.userType === "superAdmin") {
-            {console.log(response.data)}
-            sessionStorage.setItem('id', response.data._id);
-            sessionStorage.setItem('token', response.data.token);
-            sessionStorage.setItem('userType', response.data.userType);
             window.location.href = "/items";
           } else if (response.data.userType === "user") {
             window.location.href = "/shop";
-            sessionStorage.setItem('id', response.data._id);
-            sessionStorage.setItem('token', response.data.token);
-            sessionStorage.setItem('userType', response.data.userType);
           } else {
             window.location.href = "/";
           }
         });
-      } 
-
-       else{
+      } else if (response.data.message === "User doesn't exist") {
         swal({
           title: "Login failed",
-          text: response.data.message,
+          text: "Invalid email or password",
           icon: "error",
         });
       }
@@ -80,7 +72,7 @@ function Login() {
       console.error(error);
     }
   };
-
+  
   return (
     <div className="login-container">
       <div className="border-reg">

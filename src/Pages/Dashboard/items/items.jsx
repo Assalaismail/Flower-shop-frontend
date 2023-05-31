@@ -72,6 +72,15 @@ const refreshItems = useCallback(async () => {
     getProducts();
   }, [getProducts]);
 
+
+
+  const config1 = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
   //add new item
   const addItem = async () => {
     const formData = new FormData();
@@ -87,7 +96,7 @@ const refreshItems = useCallback(async () => {
         .post("https://flower-shop.onrender.com/item/addflower", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
-            // Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
           },
         })
         .then((res) => {
@@ -143,7 +152,7 @@ const refreshItems = useCallback(async () => {
       dangerMode: true,
     }).then(async (willDelete) => {
       if (willDelete) {
-        await axios.delete(`https://flower-shop.onrender.com/item/delflower/${id}`);
+        await axios.delete(`https://flower-shop.onrender.com/item/delflower/${id}`, config1);
         getProducts(categoryId);
         swal("Poof! The item has been deleted!", {
           icon: "success",

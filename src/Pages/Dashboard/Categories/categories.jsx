@@ -10,6 +10,7 @@ import EditCategory from "./editCategory";
 import PopupCategory from "./popcategory";
 
 function Categories(props) {
+  let token = sessionStorage.getItem("token");
   const [refresh, setRefresh] = useReducer((x) => x + 1, 0);
 
   const [category, setCategory] = useState([]);
@@ -35,6 +36,13 @@ function Categories(props) {
     getcategories();
   }, []);
 
+  const config1 = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
   //delete item
   const deleteUser = async (id) => {
     swal({
@@ -54,7 +62,7 @@ function Categories(props) {
       dangerMode: true,
     }).then(async (willDelete) => {
       if (willDelete) {
-        await axios.delete(`https://flower-shop.onrender.com/category/delcategory/${id}`);
+        await axios.delete(`https://flower-shop.onrender.com/category/delcategory/${id}`, config1);
         getcategories();
         swal("Poof! The category has been deleted!", {
           icon: "success",
@@ -78,7 +86,7 @@ function Categories(props) {
         {
           headers: {
             "Content-Type": "application/json",
-            // Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
           },
         }
       );

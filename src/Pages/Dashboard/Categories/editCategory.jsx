@@ -34,7 +34,7 @@ function EditCategory(props) {
     try {
       await axios.put(
         `https://flower-shop.onrender.com/category/updcategory/${itemid}`,
-        updatedItem
+        updatedItem, config1
       );
       props.onClose();
       setShowPopup(false);

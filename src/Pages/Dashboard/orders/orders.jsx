@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 function Ordersdash() {
+  let token = sessionStorage.getItem("token");
   const [orders, setOrders] = useState([]);
 
   const getOrders = async () => {
@@ -20,6 +21,13 @@ function Ordersdash() {
   useEffect(() => {
     getOrders();
   }, []);
+
+  const config1 = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
 
   const deleteOrder = async (id) => {
     swal({
@@ -39,7 +47,7 @@ function Ordersdash() {
       dangerMode: true,
     }).then(async (willDelete) => {
       if (willDelete) {
-        await axios.delete(`https://flower-shop.onrender.com/order/${id}`);
+        await axios.delete(`https://flower-shop.onrender.com/order/${id}`, config1);
         getOrders();
         swal("Poof! The order has been deleted!", {
           icon: "success",
@@ -66,23 +74,23 @@ function Ordersdash() {
           </tr>
         </thead>
         <tbody>
-          {Array.isArray(orders) &&
+          {orders && Array.isArray(orders) &&
             orders.map((order) => (
               <tr className="" key={order._id}>
-                
                 <td>
-                  {order.cart.map((item) => (
-                    <div key={item.productID._id}>{item.productID.name}</div>
+                  {order.cart.map((item) => (<>
+                    <div key={item._id}>{item && item.productID && item.productID.name ? item.productID.name : "-"}</div>
+                    </>
                   ))}
                 </td>
                 <td>
                   {order.cart.map((item) => (
-                    <div key={item.productID._id}>{item.quantity}</div>
+                    <div key={item._id}>{item && item.quantity ? item.quantity : "-"}</div>
                   ))}
                 </td>
                 <td>
                   {order.cart.map((item) => (
-                    <div key={item.productID._id}>${item.price}</div>
+                    <div key={item._id}>${item.price}</div>
                   ))}
                 </td>
                 <td>{order.total_price}</td>

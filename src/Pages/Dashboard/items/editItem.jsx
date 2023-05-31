@@ -35,6 +35,14 @@ function EditItem(props) {
     props.onClose();
   };
 
+
+  const config1 = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const updatedItem = {
@@ -44,7 +52,7 @@ function EditItem(props) {
       discount_per: discountPer,
     };
     try {
-      await axios.put(`https://flower-shop.onrender.com/item/updflower/${itemid}`, updatedItem);
+      await axios.put(`https://flower-shop.onrender.com/item/updflower/${itemid}`, updatedItem,config1);
       props.onClose();
       setShowPopup(false);
   

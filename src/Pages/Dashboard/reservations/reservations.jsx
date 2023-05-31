@@ -7,6 +7,7 @@ import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 function Reservations() {
+  let token = sessionStorage.getItem("token");
   const [reservation, setReservation] = useState([]);
 
   const getreservations = async () => {
@@ -22,6 +23,13 @@ function Reservations() {
   useEffect(() => {
     getreservations();
   }, []);
+
+  const config1 = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
 
   //delete item
   const deleteRes = async (id) => {
@@ -42,7 +50,7 @@ function Reservations() {
       dangerMode: true,
     }).then(async (willDelete) => {
       if (willDelete) {
-        await axios.delete(`https://flower-shop.onrender.com/res/reservations/${id}`);
+        await axios.delete(`https://flower-shop.onrender.com/res/reservations/${id}`, config1);
         getreservations();
         swal("Poof! The reservation has been deleted!", {
           icon: "success",
