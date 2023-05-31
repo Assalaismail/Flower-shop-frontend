@@ -182,7 +182,7 @@
 /* Reservation Form Popup */
 .res-popup {
     position: fixed;
-    top: 90px; 
+    top: 87px; 
     left: 0;
     width: 100%;
     height: calc(100% - 90px); 

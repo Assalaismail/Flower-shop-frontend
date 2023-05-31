@@ -15,7 +15,7 @@ function Home() {
   const showSlides = useCallback(
     (n) => {
       const slides = document.getElementsByClassName("imgg");
-      const dots = document.getElementsByClassName("dot");
+      const dots = document.getElementsByClassName("fade");
       if (n > slides.length) {
         setSlideIndex(1);
       }
@@ -25,7 +25,7 @@ function Home() {
       for (let i = 0; i < slides.length; i++) {
         if (slides[i]) {
           // add check to ensure slides[i] is defined
-          slides[i].style.display = "none";
+          slides[i].style.zIndex = -1;
         }
       }
       for (let i = 0; i < dots.length; i++) {
@@ -34,6 +34,8 @@ function Home() {
       if (slides[slideIndex - 1]) {
         // add check to ensure slides[slideIndex - 1] is defined
         slides[slideIndex - 1].style.display = "block";
+        slides[slideIndex - 1].style.zIndex = 3;
+
       }
       if (dots[slideIndex - 1]) {
         // add check to ensure dots[slideIndex - 1] is defined
@@ -108,7 +110,7 @@ function Home() {
           you every step of the way.
         </p>
         <Link to="/reservation">
-        <button className="event-button">Book your event!</button>
+          <button className="event-button">Book your event!</button>
         </Link>
       </div>
 
@@ -116,7 +118,7 @@ function Home() {
         <div className="about-us-image">
           <img src={aboutus} alt="Image Description" />
         </div>
-        <div className="about-us-content about-us-content-desktop">
+        <div className="about-us-content">
           <p>
             At Fleur de vie, we believe that flowers have the power to brighten
             any day and bring joy to any occasion. That's why we're passionate
