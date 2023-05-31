@@ -12,6 +12,7 @@ import PopupCategory from "./popcategory";
 function Categories(props) {
   let token = sessionStorage.getItem("token");
   const [refresh, setRefresh] = useReducer((x) => x + 1, 0);
+  const navigate = useNavigate();
 
   const [category, setCategory] = useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState("");
@@ -21,6 +22,14 @@ function Categories(props) {
 
   const [showEditPopup, setShowEditPopup] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+
+  const userRole = sessionStorage.getItem("userType");
+
+  console.log(userRole === "user")
+  useEffect(() => {
+    if(!sessionStorage.getItem("token") || userRole == "user")
+    navigate("/login");
+  }, [])
 
   const getcategories = async () => {
     try {

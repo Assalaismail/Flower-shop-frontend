@@ -25,6 +25,16 @@ function Items(props) {
   const [cat, setCat] = useState("");
   const [image, setImage] = useState("");
   const [category, setCategory] = useState([]);
+  
+  const userRole = sessionStorage.getItem("userType");
+
+console.log(userRole === "user")
+useEffect(() => {
+  if(!sessionStorage.getItem("token") || userRole == "user")
+  navigate("/login");
+}, [])
+
+
 
 
   const getProducts = useCallback(async () => {
@@ -187,8 +197,24 @@ const refreshItems = useCallback(async () => {
     setImage(event.target.files[0]);
   };
 
+  function checkUserRole() {
+    const userRole = sessionStorage.getItem("userType");
+    const token = sessionStorage.getItem("token");
+
+    // Get the user's role from session storage
+    if (!token || userRole === "user") {
+      // User has the 'user' role, so navigate to the desired page
+
+      navigate("/login", { replace: true });
+    }
+  }
+
   return (
+   <>
+   {/* {checkUserRole()} */}
+
     <div className="tbl-wrper">
+       
       <div class="container-add-itemmm">
         <button onClick={handleAddItemButtonClick} className="add-itemmm">
           <span className="add-item-icon-dash">&#43;</span>Add Item
@@ -361,6 +387,7 @@ const refreshItems = useCallback(async () => {
         />
       )}
     </div>
+    </>
   );
 }
 export default Items;

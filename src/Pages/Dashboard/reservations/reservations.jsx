@@ -5,11 +5,23 @@ import swal from "sweetalert";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
+
 
 function Reservations() {
   let token = sessionStorage.getItem("token");
   const [reservation, setReservation] = useState([]);
+  const navigate = useNavigate();
 
+  const userRole = sessionStorage.getItem("userType");
+
+  console.log(userRole === "user")
+  useEffect(() => {
+    if(!sessionStorage.getItem("token") || userRole == "user")
+    navigate("/login");
+  }, [])
+
+  
   const getreservations = async () => {
     try {
       const response = await axios.get(

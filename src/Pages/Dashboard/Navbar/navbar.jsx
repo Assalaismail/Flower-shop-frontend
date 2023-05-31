@@ -37,6 +37,11 @@ function Navbardash() {
 
   window.addEventListener("scroll", navbar);
 
+  const handleSignout=()=>{
+    sessionStorage.clear();
+        navigate("/");
+  }
+
   return (
     <header className={nav ? "not-dash" : "sticky-header-dash"}>
       <div className="menu-icon" id="menu-icon" onClick={toggle}>
@@ -72,6 +77,11 @@ function Navbardash() {
             reservations
           </a>
         </li>
+        <li className={nav ? "maintain" : "normal"}>
+            <p onClick={handleSignout} className="ri-user-3-fill">
+              Logout
+            </p>
+          </li>
       </ul>
     </header>
   );

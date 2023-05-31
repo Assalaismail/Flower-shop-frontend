@@ -4,10 +4,22 @@ import "../orders/order.css";
 import swal from "sweetalert";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router";
+
 
 function Ordersdash() {
   let token = sessionStorage.getItem("token");
   const [orders, setOrders] = useState([]);
+  const navigate = useNavigate();
+
+
+  const userRole = sessionStorage.getItem("userType");
+
+  console.log(userRole === "user")
+  useEffect(() => {
+    if(!sessionStorage.getItem("token") || userRole == "user")
+    navigate("/login");
+  }, [])
 
   const getOrders = async () => {
     try {
