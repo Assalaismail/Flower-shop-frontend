@@ -105,6 +105,7 @@ function Navbar() {
               className={`{
                 location.pathname === "/login" ? "active" : ""
               }ri-user-3-fill`}
+            
             >
               Sign In
             </p>

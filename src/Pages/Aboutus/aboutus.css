@@ -66,6 +66,25 @@
   text-align: center;
 }
 
+@media screen and (max-width: 1024px) {
+  .aboutus-container {
+    flex-direction: column;
+  }
+
+  .text-container {
+    padding: 0;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .image-container {
+    padding: 0;
+  }
+
+  .aboutus-image {
+    height: 600px;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .aboutus-container {
