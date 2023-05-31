@@ -124,7 +124,7 @@
 }
 
 /* Responsive styles for mobile */
-@media (max-width: 768px) {
+@media (max-width: 576px) {
   .primary {
     width: 100%;
     padding: 2vh;
@@ -169,7 +169,7 @@
   }
   
   .iframe {
-    width: 100%;
+    width: 98%;
     height: 300px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 14px 0px;
     margin-bottom: 20px;
@@ -180,16 +180,19 @@
     margin: 0 auto;
     display: flex;
     gap: 30px;
+    align-items: flex-start;
+    margin-left: 50px;
   }
 }
 
-@media all and (min-width: 770px) and (max-width: 926px) {
+@media all and (min-width: 576px) and (max-width: 926px) {
 
   .insider{
     width: 77%;
     margin: 0 auto;
     display: flex;
     gap: 30px;
+    margin-left: 0;
   }
 
 
