@@ -91,10 +91,8 @@ function Navbar() {
           </p>
         </li>
 
-       
-      </ul>
-      <div  className={nav ? 'head-icons' : 'header-icons'}>
-      {token ? (
+      
+        {token ? (
           <li className={nav ? "maintain" : "normal"}>
             <p onClick={handleSignout} className="ri-user-3-fill">
               Logout
@@ -117,6 +115,35 @@ function Navbar() {
             <img src={cart} alt="cart" className='cart'/>
           </Link>
         </li>
+        
+      </ul>
+      
+      <div  className={nav ? 'head-icons' : 'header-icons'}>
+      {/* <div className='signcart'>
+        {token ? (
+          <li className={nav ? "maintain" : "normal"}>
+            <p onClick={handleSignout} className="ri-user-3-fill">
+              Logout
+            </p>
+          </li>
+        ) : (
+          <li className={nav ? "maintain" : "normal"}>
+            <p
+              onClick={handleSignClick}
+              className={`{
+                location.pathname === "/login" ? "active" : ""
+              }ri-user-3-fill`}
+            >
+              Sign In
+            </p>
+          </li>
+        )}
+        <li>
+          <Link to="/order">
+            <img src={cart} alt="cart" className='cart'/>
+          </Link>
+        </li>
+        </div> */}
         <div className={icon} id="menu-icon" onClick={toggle}></div>
       </div>
     </header>

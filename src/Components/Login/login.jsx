@@ -44,7 +44,7 @@ function Login() {
         },
       );
       
-      if (response.status === 200) {
+      if (response.data.message === "User exists") {
         swal({
           title: "Login successful",
           icon: "success",
@@ -67,14 +67,9 @@ function Login() {
             window.location.href = "/";
           }
         });
-      } else if(response.status === 401){
-        swal({
-          title: "Login failed",
-          text: response.data.message,
-          icon: "error",
-        });
+      } 
 
-      } else{
+       else{
         swal({
           title: "Login failed",
           text: response.data.message,

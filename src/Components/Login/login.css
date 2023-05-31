@@ -57,4 +57,20 @@
     margin-top: 20px;
     font-size: 20px;
   }
+
+  @media (max-width: 576px) {
+
+    .login-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 90.5vh;
+     background-image: none;
+      background-size: cover;
+      background-color: white;
+    
+    }
+  
+  }
   
