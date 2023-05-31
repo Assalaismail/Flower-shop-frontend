@@ -2,6 +2,8 @@ import './navbar.css';
 import React, { useState, useEffect } from 'react';
 import { useLocation,useNavigate } from 'react-router-dom';
 import logo from '../../Assets/logof.png';
+import cart from '../../Assets/cart.png';
+import { Link } from "react-router-dom";
 
 
 function Navbar() {
@@ -77,11 +79,7 @@ function Navbar() {
             About us
           </a>
         </li>
-        {/* <li className={nav ? 'maintain' : 'normal'}>
-          <a href="/discounts" className={location.pathname === '/discounts' ? 'active' : ''}>
-            Discounts
-          </a>
-        </li> */}
+
         <li className={nav ? 'maintain' : 'normal'}>
           <a href="/contactus" className={location.pathname === '/contactus' ? 'active' : ''}>
             Contact us
@@ -92,21 +90,33 @@ function Navbar() {
             
           </p>
         </li>
+
+       
       </ul>
       <div  className={nav ? 'head-icons' : 'header-icons'}>
-        {token ?  <p onClick={handleSignout}
-        >Logout</p> : <p onKeyDown={(e) => {
-          if (e.keyCode === 13) {
-            handleSignClick();
-          }
-          }} 
-          onClick={handleSignClick}
-          tabIndex="0"
-          className="user"
-        >
-          <i className="ri-user-fill"></i>Sign-in
-        </p>}
-        
+      {token ? (
+          <li className={nav ? "maintain" : "normal"}>
+            <p onClick={handleSignout} className="ri-user-3-fill">
+              Logout
+            </p>
+          </li>
+        ) : (
+          <li className={nav ? "maintain" : "normal"}>
+            <p
+              onClick={handleSignClick}
+              className={`{
+                location.pathname === "/login" ? "active" : ""
+              }ri-user-3-fill`}
+            >
+              Sign In
+            </p>
+          </li>
+        )}
+        <li>
+          <Link to="/order">
+            <img src={cart} alt="cart" className='cart'/>
+          </Link>
+        </li>
         <div className={icon} id="menu-icon" onClick={toggle}></div>
       </div>
     </header>

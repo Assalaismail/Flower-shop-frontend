@@ -260,8 +260,8 @@ function Order() {
             <div>
               <h2 className="total">Total:</h2>
             </div>
-            <div>
-              <p>{totalPrice} $</p>
+            <div className="totalprice-form">
+              <p >{totalPrice} $</p>
             </div>
           </div>
           <br></br>

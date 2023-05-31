@@ -1,15 +1,10 @@
-
-.orderss{
-  /* height: 70vh; */
+.orderss {
   min-height: 100vh;
 }
 
-
-
-
-.order-container{
+.order-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-left: 5rem;
   margin-right: 5rem;
   gap: 10rem;
@@ -17,40 +12,30 @@
   align-items: center;
 }
 
-
-.orders-div {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.product-row{
-  margin-bottom: 50px;
-  border-bottom: 1px solid black;
-}
 .products-table {
-  width: 50%;
+  width: 100%;
   border: 1px solid grey;
   box-shadow: 1px 1px 3px grey;
   padding: 3em;
   text-align: center;
- 
 }
 
-.products-table td{
+.product-row {
+  margin-bottom: 50px;
+  border-bottom: 1px solid black;
+}
+
+.products-table td {
   border-bottom: 1px solid lightpink;
   padding-top: 5px;
   padding-bottom: 5px;
-
 }
 
 .order-form {
-  /* width: 20%; */
-  margin-left: 2rem;
+  margin-top: 2rem;
   border: 1px solid black;
   padding: 2rem;
   border-radius: 10px;
-  height: 20%;
 }
 
 .order-form input {
@@ -58,8 +43,6 @@
   padding: 0.5rem;
   margin-bottom: 1rem;
 }
-
-
 
 .quantity {
   display: flex;
@@ -90,52 +73,49 @@
   background-color: #999;
 }
 
-.orderDelete{
+.orderDelete {
   border: none;
   font-size: 25px;
   background: none;
 }
 
-.orderName{
+.orderName {
   font-size: 25px;
   font-weight: 800;
 }
 
-.orderPrice{
+.orderPrice {
   font-size: 25px;
   font-weight: 500;
 }
 
-.totalOrder{
+.totalOrder {
   font-size: 25px;
   font-weight: 800;
   width: 200px;
 }
 
-.label-order{
+.label-order {
   font-size: 20px;
   font-weight: 900;
   margin-bottom: 10px;
-  
 }
 
-.input-order{
+.input-order {
   border-radius: 5px;
   margin-top: 10px;
-  
- 
 }
 
-.total{
+.total {
   margin-bottom: 10px;
 }
 
-.img-order{
+.img-order {
   width: 125px;
   height: 150px;
 }
 
-.h1-order{
+.h1-order {
   color: lightpink;
   font-size: 50px;
   font-weight: 900;
@@ -144,13 +124,14 @@
   text-align: center;
 }
 
-.buttons{
+.buttons {
   display: flex;
   flex-direction: row;
   gap: 3rem;
+  justify-content: center;
 }
 
-.submitorderbutton{
+.submitorderbutton {
   font-size: 20px;
   background-color: lightpink;
   padding: 15px;
@@ -160,10 +141,9 @@
   font-size: 1.5rem;
   padding: 10px 20px;
   border: 2px solid lightpink;
-  /* box-shadow: 3px 3px grey; */
 }
 
-.delorderbutton{
+.delorderbutton {
   font-size: 20px;
   background-color: grey;
   padding: 15px;
@@ -172,27 +152,27 @@
   margin-top: 20px;
   font-size: 1.5rem;
   padding: 10px 20px;
-  /* border: 2px solid lightpink; */
-  /* box-shadow: 3px 3px grey; */
   border: 2px solid grey;
 }
 
+.totalprice-form {
+  font-size: 20px;
+}
 
-/* Media queries for mobile */
-@media only screen and (max-width: 768px) {
-  .orders-div {
-    flex-direction: column;
-    align-items: center;
-    padding: 0 1rem;
+@media screen and (min-width: 768px) {
+  .order-container {
+    flex-direction: row;
   }
 
   .products-table {
-    width: 100%;
-    margin-left: 0;
-    margin-bottom: 2rem;
+    width: 50%;
   }
 
   .order-form {
-    width: 100%;
+    width: 30%;
+    margin-top: 0;
+    margin-left: 2rem;
   }
+
+ 
 }
