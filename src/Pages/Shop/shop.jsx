@@ -108,7 +108,7 @@ function Shop(props) {
                     Details
                   </button>
 
-                  <button onClick={saveToLocalStorage}>Add to Cart</button>
+                  
                 </div>
               </div>
             </div>

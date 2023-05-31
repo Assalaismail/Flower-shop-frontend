@@ -3,91 +3,112 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import "./single.css";
-
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Single() {
   const [item, setItem] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const getItem = async () => {
-      try {
-        const response = await axios.get(
-          `https://flower-shop.onrender.com/item/getflower/${id}`
-        );
-        setItem(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getItem();
-  }, [id]);
+  const [canorder, setcanorder] = useState(true);
 
-  const saveToLocalStorage = () => {
-    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+function checkUserRole() {
+  const userRole = sessionStorage.getItem("userType");
+  const token = sessionStorage.getItem("token");
 
-    const existingCartItemIndex = cartItems.findIndex(
-      (items) => items._id === item._id
-    );
+  // Get the user's role from session storage
+  if (!token || !userRole) {
+    // User is not logged in, set canorder to false
+    setcanorder(false);
+  } else {
+    setcanorder(true);
+  }
+}
 
-    if (existingCartItemIndex !== -1) {
-      swal({
-        title: "Item already in cart",
-        text: "Do you want to continue shopping or view the cart?",
-        icon: "info",
-        buttons: {
-          continueShopping: {
-            text: "Continue Shopping",
-            value: "continueShopping",
-          },
-          viewCart: {
-            text: "View Cart",
-            value: "viewCart",
-          },
-        },
-      }).then((value) => {
-        if (value === "continueShopping") {
-          navigate("/shop"); 
-        } else if (value === "viewCart") {
-          navigate("/order"); 
-        }
-      });
-    } else {
-      const firstImage = item?.image?.url;
-      cartItems.push({
-        _id: item._id,
-        name: item.name,
-        price: item.price,
-        price_after_discount: item.price_after_discount,
-        image: firstImage,
-      });
+useEffect(() => {
+  checkUserRole();
+}, []);
 
-      localStorage.setItem("cartItems", JSON.stringify(cartItems));
-
-      swal({
-        title: "Item added to cart",
-        text: "Do you want to continue shopping or view the cart?",
-        icon: "success",
-        buttons: {
-          continueShopping: {
-            text: "Continue Shopping",
-            value: "continueShopping",
-          },
-          viewCart: {
-            text: "View Cart",
-            value: "viewCart",
-          },
-        },
-      }).then((value) => {
-        if (value === "continueShopping") {
-          navigate("/shop"); 
-        } else if (value === "viewCart") {
-          navigate("/order"); 
-        }
-      });
+useEffect(() => {
+  const getItem = async () => {
+    try {
+      const response = await axios.get(
+        `https://flower-shop.onrender.com/item/getflower/${id}`
+      );
+      setItem(response.data);
+    } catch (error) {
+      console.error(error);
     }
   };
+  getItem();
+}, [id]);
+
+const saveToLocalStorage = () => {
+  const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+  const existingCartItemIndex = cartItems.findIndex(
+    (items) => items._id === item._id
+  );
+
+  if (existingCartItemIndex !== -1) {
+    swal({
+      title: "Item already in cart",
+      text: "Do you want to continue shopping or view the cart?",
+      icon: "info",
+      buttons: {
+        continueShopping: {
+          text: "Continue Shopping",
+          value: "continueShopping",
+        },
+        viewCart: {
+          text: "View Cart",
+          value: "viewCart",
+        },
+      },
+    }).then((value) => {
+      if (value === "continueShopping") {
+        navigate("/shop"); 
+      } else if (value === "viewCart") {
+        navigate("/order"); 
+      }
+    });
+  } else {
+    const firstImage = item?.image?.url;
+    cartItems.push({
+      _id: item._id,
+      name: item.name,
+      price: item.price,
+      price_after_discount: item.price_after_discount,
+      image: firstImage,
+    });
+
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+    swal({
+      title: "Item added to cart",
+      text: "Do you want to continue shopping or view the cart?",
+      icon: "success",
+      buttons: {
+        continueShopping: {
+          text: "Continue Shopping",
+          value: "continueShopping",
+        },
+        viewCart: {
+          text: "View Cart",
+          value: "viewCart",
+        },
+      },
+    }).then((value) => {
+      if (value === "continueShopping") {
+        navigate("/shop"); 
+      } else if (value === "viewCart") {
+        navigate("/order"); 
+      }
+    });
+  }
+};
+
 
   return (
     <div>

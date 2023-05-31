@@ -271,8 +271,8 @@
 @media (max-width: 576px) {
 
   .imgg {
-    height: 35vh;
-    min-height: 35vh;
+    /* height: 35vh; */
+    /* min-height: 35vh; */
     object-fit: cover;
   }
 
