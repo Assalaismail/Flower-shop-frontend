@@ -302,6 +302,7 @@ function Reservation() {
 
               <br></br>
             </form>
+            <div className="buttons-phone">
             <button
               type="submit"
               className="res-submit-btn"
@@ -312,6 +313,7 @@ function Reservation() {
             <button className="res-close-btn" onClick={closeFormPopup}>
               Close
             </button>
+            </div>
           </div>
         </div>
       )}
