@@ -177,6 +177,7 @@
   font-size: 20px;
 }
 
+/* mobiles */
 @media (max-width: 576px) {
   .order-container {
     flex-direction: column;
@@ -186,7 +187,7 @@
   }
 
   .products-table {
-    width: 100%;
+    width: 110%;
     margin-bottom: 2rem;
   }
 
@@ -225,9 +226,11 @@
   }
 
   .order-form {
-    width: 100%;
+    width: 110%;
     margin: 0;
     padding: 1rem;
+    
+    margin-bottom: 20px;
   }
 
   .buttons {
@@ -248,6 +251,7 @@
   }
 }
 
+/* tablets */
 @media (min-width: 577px) and (max-width: 1024px) {
   .order-container {
     flex-direction: column;
@@ -323,9 +327,30 @@
     padding: 15px;
     border-radius: 26px;
     margin-top: 20px;
+   
+  }
+
+  .delorderbutton{
+    margin-left: 250px;
   }
 
   .totalprice-form {
     font-size: 20px;
+  }
+
+  .order-form input{
+    padding: 1.2rem;
+  }
+
+  .label-order{
+    font-size: 25px;
+  }
+
+  .total{
+    font-size: 30px;
+  }
+
+  .totalprice-form{
+    font-size: 27px;
   }
 }

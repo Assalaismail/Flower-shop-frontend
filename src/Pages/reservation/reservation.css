@@ -1,5 +1,5 @@
 .bookyourevent {
- text-align: center;
+  text-align: center;
   font-size: 50px;
   margin-top: 25px;
   margin-bottom: 20px;
@@ -106,14 +106,12 @@
   font-weight: bold;
   font-size: 20px;
   font-family: cursive;
-
 }
 
 .res-label-tool {
   font-weight: bold;
   font-size: 20px;
   white-space: nowrap;
- 
 }
 
 .res-input {
@@ -130,14 +128,11 @@
 }
 
 .res-input[type="submit"] {
-  
   color: white;
   padding: 10px 24px;
   border: none;
   cursor: pointer;
 }
-
-
 
 .res-h2 {
   text-align: center;
@@ -147,32 +142,28 @@
 }
 
 .tools {
-    margin-top: 20px;
-    width: 100%;
-    
-  }
-  
-  .tools-check {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .tools-check > div {
-    width: 100%;
-    display: flex;
-    margin-bottom: 15px;
-    font-size: 18px;
-    margin-top: 10px;
-  }
-  
-  
+  margin-top: 20px;
+  width: 100%;
+}
+
+.tools-check {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.tools-check > div {
+  width: 100%;
+  display: flex;
+  margin-bottom: 15px;
+  font-size: 18px;
+  margin-top: 10px;
+}
 
 .details {
   width: 178%;
   font-weight: bold;
   font-size: 20px;
-  
 }
 .res-input-details {
   height: 70px;
@@ -182,31 +173,29 @@
 
 /* Reservation Form Popup */
 .res-popup {
-    position: fixed;
-    top: 87px; 
-    left: 0;
-    width: 100%;
-    height: calc(100% - 90px); 
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow-y: auto; 
-    z-index: 9999; 
-  }
-  
+  position: fixed;
+  top: 87px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 90px);
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  z-index: 9999;
+}
 
-  .res-popup-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    max-width: 645px;
-    border: 1px solid lightpink;
-    width: 80%; 
-    margin: auto; 
-  }
-  
+.res-popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 645px;
+  border: 1px solid lightpink;
+  width: 80%;
+  margin: auto;
+}
 
 .res-close-btn {
   background-color: black;
@@ -236,222 +225,212 @@
 }
 
 .res-images {
-    display: flex;
-    justify-content: center;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 3%;
-  }
-  
-  .res-image,
-  .res-image1 {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-    border-radius: 50%;
-    object-fit: cover;
-    aspect-ratio: 1/1;
-    background-color: grey;
-    transition: transform 0.3s ease-in-out;
-  }
-  .res-image:hover,
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3%;
+}
+
+.res-image,
+.res-image1 {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  background-color: grey;
+  transition: transform 0.3s ease-in-out;
+}
+.res-image:hover,
 .res-image1:hover {
   transform: scale(0.8);
 }
 
-
 /* Styles for mobile devices */
 @media (max-width: 576px) {
-    .bookyourevent {
-      margin-left: 20px;
-      font-size: 30px;
-      margin-top: 13px;
-      margin-bottom: 10px;
-    }
-  
-    .res-image-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-  
-    .res-book1,
-    .res-book2,
-    .res-book3 {
-      width: 100%;
-      height: auto;
-      max-height: 300px;
-    }
-  
-    .res-event {
-      max-width: 90%;
-    
-      }
-    
-  
-    .res-event-title {
-      font-size: 32px;
-      margin-top: 30px;
-    }
-  
-    .res-event-text,
-    .res-event-text1,
-    .res-event-text2 {
-      font-size: 16px;
-    }
-  
-    .res-button {
-      font-size: 16px;
-      padding: 10px 16px;
-    }
-  
-    .res-container {
-      height: auto;
-    }
-  
-    .res-form {
-      grid-template-columns: 1fr;
-      grid-row-gap: 10px;
-      max-width: 100%;
-    }
-  
-    .res-input-address,
-    .res-input-details {
-      width: 96%;
-      height: 58px;
-    }
-  
-    .res-h2 {
-      font-size: 30px;
-    }
-  
-    .tools-check > div {
-      width: 100%;
-      margin-bottom: 10px;
-    }
-  
-    .details {
-      width: 100%;
-    }
-  
-    .res-input {
-      width: 96%;
-      padding: 8px;
-      margin-bottom: 16px;
-    }
-    .res-popup-content {
-      width: 95%;
-      max-width: 100%;
-    }
-  
-    .res-submit-btn {
-      margin-right: 150px;
-    }
-  
-   
-    .res-image,
-    .res-image1 {
-      max-width: 80%; 
-      height: auto;
-      margin-bottom: 10px;
-    }
-
-    .res-label-tool {
-      font-weight: bold;
-      font-size: 18px;
-      white-space: nowrap;
-      min-width: 50%;
-     
-    }
-
-    .buttons-phone{
-      display: flex;
-      flex-direction: row;
-    }
+  .bookyourevent {
+    margin-left: 20px;
+    font-size: 30px;
+    margin-top: 13px;
+    margin-bottom: 10px;
   }
-  
-  /* Styles for tablet devices */
+
+  .res-image-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .res-book1,
+  .res-book2,
+  .res-book3 {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+  }
+
+  .res-event {
+    max-width: 90%;
+  }
+
+  .res-event-title {
+    font-size: 32px;
+    margin-top: 30px;
+  }
+
+  .res-event-text,
+  .res-event-text1,
+  .res-event-text2 {
+    font-size: 16px;
+  }
+
+  .res-button {
+    font-size: 16px;
+    padding: 10px 16px;
+  }
+
+  .res-container {
+    height: auto;
+  }
+
+  .res-form {
+    grid-template-columns: 1fr;
+    grid-row-gap: 10px;
+    max-width: 100%;
+  }
+
+  .res-input-address,
+  .res-input-details {
+    width: 96%;
+    height: 58px;
+  }
+
+  .res-h2 {
+    font-size: 30px;
+  }
+
+  .tools-check > div {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .details {
+    width: 100%;
+  }
+
+  .res-input {
+    width: 96%;
+    padding: 8px;
+    margin-bottom: 16px;
+  }
+  .res-popup-content {
+    width: 95%;
+    max-width: 100%;
+  }
+
+  .res-submit-btn {
+    margin-right: 150px;
+  }
+
+  .res-image,
+  .res-image1 {
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .res-label-tool {
+    font-weight: bold;
+    font-size: 18px;
+    white-space: nowrap;
+    min-width: 50%;
+  }
+
+  .buttons-phone {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+/* Styles for tablet devices */
 @media (max-width: 1024px) {
-    .bookyourevent {
-      font-size: 40px;
-      margin-top: 20px;
-      margin-bottom: 15px;
-    }
-
-    .res-event {
-        margin-top: 50px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        font-family: cursive;
-        margin: 0 auto;
-      }
-  
-    .res-event-title {
-      font-size: 30px;
-      margin-bottom: 15px;
-      margin-top: 40px;
-    }
-  
-    .res-event-text,
-    .res-event-text1,
-    .res-event-text2 {
-      font-size: 25px;
-      margin-bottom: 15px;
-    }
-  
-    .res-button {
-      font-size: 18px;
-      padding: 12px;
-      margin-top: 15px;
-      margin-bottom: 25px;
-    }
-  
-    .res-container {
-      height: auto;
-      margin-bottom: 20px;
-    }
-
-    .res-label {
-      font-weight: bold;
-      font-size: 20px;
-      /* font-family: cursive; */
-      margin-left: 8px;
-    
-    }
-  
-    .res-input-address {
-      /* width: 177%; */
-      padding: 8px;
-      margin-bottom: 16px;
-      height: 52px;
-      margin-left: 8px;
-    }
-   
-   
-    .res-input {
-      width: 95%;
-      padding: 8px;
-      margin-bottom: 20px;
-      margin-left: 8px;
-    }
-
-    .res-input-details{
-      height: 52px;
-      /* width: 176%; */
-      padding: 17px;
-      margin-bottom: 20px;
-      margin-left: 8px;
-    }
-
-    .details{
-      margin-left: 8px;
-    }
-   
+  .bookyourevent {
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 15px;
   }
-  
-  
+
+  .res-event {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: cursive;
+    margin: 0 auto;
+  }
+
+  .res-event-title {
+    font-size: 30px;
+    margin-bottom: 15px;
+    margin-top: 40px;
+  }
+
+  .res-event-text,
+  .res-event-text1,
+  .res-event-text2 {
+    font-size: 25px;
+    margin-bottom: 15px;
+  }
+
+  .res-button {
+    font-size: 18px;
+    padding: 12px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+  }
+
+  .res-container {
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .res-label {
+    font-weight: bold;
+    font-size: 20px;
+    /* font-family: cursive; */
+    margin-left: 8px;
+  }
+
+  .res-input-address {
+    /* width: 177%; */
+    padding: 8px;
+    margin-bottom: 16px;
+    height: 52px;
+    margin-left: 8px;
+  }
+
+  .res-input {
+    width: 95%;
+    padding: 8px;
+    margin-bottom: 20px;
+    margin-left: 8px;
+  }
+
+  .res-input-details {
+    height: 52px;
+    /* width: 176%; */
+    padding: 17px;
+    margin-bottom: 20px;
+    margin-left: 8px;
+  }
+
+  .details {
+    margin-left: 8px;
+  }
+}
