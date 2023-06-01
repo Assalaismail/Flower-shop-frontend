@@ -1,3 +1,44 @@
+
+.swal-button {
+  width: 100%;
+  margin-bottom: 10px;
+  font-weight: 900;
+}
+
+.swal-button.swal-button--confirm {
+  background-color: lightpink;
+  border-color: lightpink;
+  color: black;
+}
+
+.swal-button.swal-button--cancel {
+  background-color: #aaa;
+  border-color: #aaa;
+}
+
+.swal-button.swal-button--cancel:focus {
+  outline: none;
+}
+
+.swal-button.swal-button--confirm:hover{
+  background-color: palevioletred;
+}
+
+.swal-button-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
 @media all and (min-width:701px){
     .single-item{
       display: grid;
@@ -159,6 +200,10 @@
   
     .s-left img {
       width: 80%;
+    }
+
+    .continueshopping{
+      background-color: red;
     }
   }
   

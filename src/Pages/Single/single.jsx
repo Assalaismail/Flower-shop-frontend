@@ -57,20 +57,22 @@ const saveToLocalStorage = () => {
       text: "Do you want to continue shopping or view the cart?",
       icon: "info",
       buttons: {
-        continueShopping: {
-          text: "Continue Shopping",
-          value: "continueShopping",
-        },
-        viewCart: {
-          text: "View Cart",
-          value: "viewCart",
-        },
-      },
+        cancel: "Continue Shopping",
+            confirm: {
+              text: "See Cart",
+              value: "cart",
+              className: "swal-button"
+            },
+          },
+          customClass: {
+            confirmButton: "swal-button-center",
+            container: "my-custom-container-class",
+          },
     }).then((value) => {
-      if (value === "continueShopping") {
-        navigate("/shop"); 
-      } else if (value === "viewCart") {
-        navigate("/order"); 
+      if (value === "cart") {
+        window.location.href = "/order";
+      } else {
+        window.location.href = "/shop";
       }
     });
   } else {
@@ -90,20 +92,22 @@ const saveToLocalStorage = () => {
       text: "Do you want to continue shopping or view the cart?",
       icon: "success",
       buttons: {
-        continueShopping: {
-          text: "Continue Shopping",
-          value: "continueShopping",
-        },
-        viewCart: {
-          text: "View Cart",
-          value: "viewCart",
-        },
-      },
+        cancel: "Continue Shopping",
+            confirm: {
+              text: "See Cart",
+              value: "cart",
+              className: "swal-button"
+            },
+          },
+          customClass: {
+            confirmButton: "swal-button-center",
+            container: "my-custom-container-class",
+          },
     }).then((value) => {
-      if (value === "continueShopping") {
-        navigate("/shop"); 
-      } else if (value === "viewCart") {
-        navigate("/order"); 
+      if (value === "cart") {
+        window.location.href = "/order";
+      } else {
+        window.location.href = "/shop";
       }
     });
   }
