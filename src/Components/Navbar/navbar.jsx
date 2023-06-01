@@ -34,14 +34,14 @@ function Navbar() {
     setShow(!show);
   };
 
-  function navbar(){
-    if (window.scrollY >= 851){
-      setNav(true)
-    }
-    else{
-      setNav(false)
-    }
-  }
+  // function navbar(){
+  //   if (window.scrollY >= 851){
+  //     setNav(true)
+  //   }
+  //   else{
+  //     setNav(false)
+  //   }
+  // }
 
   const handleSignClick = () => {
     navigate("/login")
@@ -55,7 +55,7 @@ function Navbar() {
         navigate("/");
   }
 
-  window.addEventListener("scroll", navbar);
+  // window.addEventListener("scroll", navbar);
 
   return (
     <header className={nav ? 'not' : 'sticky-header'}>
