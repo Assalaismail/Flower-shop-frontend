@@ -36,7 +36,7 @@ li {
 .logo img {
   width: 7rem;
   cursor: pointer;
-  height: 65px;
+  height: 73px;
   margin-left: 2rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -164,7 +164,7 @@ li {
   }
 
   .logo span {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: bold;
   }
   .logo img {
@@ -201,6 +201,9 @@ li {
     color: purple;
   }
 
+  .nav-links li a{
+
+  }
   .header-icons p {
     margin-inline: 5px 10px;
     font-size: 0.8rem;
@@ -243,7 +246,7 @@ li {
   .logo img {
     width: 91px;
     cursor: pointer;
-    height: 70px;
+    height: 73px;
     margin-left: 1rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
@@ -327,7 +330,7 @@ li {
   .logo img {
     width: 91px;
     cursor: pointer;
-    height: 70px;
+    height: 73px;
     margin-left: 1rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;

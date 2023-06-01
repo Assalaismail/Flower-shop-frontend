@@ -25,7 +25,7 @@
   
 }
 
-.logo {
+/* .logo {
   display: flex;
   align-items: center;
 }
@@ -37,12 +37,12 @@ width: 7rem;
   margin-left: 2rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-}
+} */
 
-.logo span {
+/* .logo span {
   font-size: 1.7rem;
   font-weight: bold;
-}
+} */
 
 .nav-links-dash {
   display: flex;
@@ -136,7 +136,7 @@ width: 7rem;
   display: none;
 }
 
-@media all and (max-width: 1230px) {
+/* @media all and (max-width: 1230px) {
   .sticky-header {
       grid-template-columns: 250px 4fr 1fr;
   }
@@ -174,7 +174,7 @@ width: 7rem;
 .willhide,
 .willhidden {
   display: none;
-}
+} */
 
 
 
