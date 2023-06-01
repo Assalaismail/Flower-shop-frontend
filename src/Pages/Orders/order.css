@@ -177,6 +177,17 @@
   font-size: 20px;
 }
 
+.custom-swal-button {
+  background-color: pink !important;
+  color: white !important;
+  /* border: none !important; */
+  border-radius: 20px;
+}
+
+.custom-swal-button:hover {
+  background-color: darkpink !important;
+}
+
 /* mobiles */
 @media (max-width: 576px) {
   .order-container {

@@ -214,7 +214,7 @@ function Categories(props) {
       <PopupCategory trigger={showPopup} setTrigger={() => setShowPopup(false)}>
         <div className="inputs-add-products">
           <div className="container-items-x">
-            <h2 className="title-edit">Add Item:</h2>
+            <h2 className="title-edit">Add Category:</h2>
             <div className="close-item-btn-container">
               <button
                 className="close-item-btn-edit"

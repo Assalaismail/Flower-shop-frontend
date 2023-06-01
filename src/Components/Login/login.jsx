@@ -25,11 +25,18 @@ function Login() {
         title: "Error",
         text: "Please fill in all the fields",
         icon: "error",
+        customClass: {
+          container: 'custom-swal-container',
+          title: 'custom-swal-title',
+          content: 'custom-swal-content',
+          confirmButton: 'custom-swal-button',
+        },
       });
       return;
     }
   
     try {
+   
       const response = await axios.post(
         "https://flower-shop.onrender.com/user/login",
         {
@@ -42,11 +49,14 @@ function Login() {
           },
         }
       );
+   
   
       if (response.data.message === "User exists") {
         swal({
           title: "Login successful",
           icon: "success",
+         
+          
         }).then(() => {
           localStorage.clear();
           sessionStorage.setItem("token", response.data.token);
@@ -61,14 +71,31 @@ function Login() {
             window.location.href = "/";
           }
         });
-      } else if (response.data.message === "User doesn't exist") {
+      } else  {
         swal({
           title: "Login failed",
-          text: "Invalid email or password",
+          text: response.data.message,
           icon: "error",
+          customClass: {
+            container: 'custom-swal-container',
+            title: 'custom-swal-title',
+            content: 'custom-swal-content',
+            confirmButton: 'custom-swal-button',
+          },
         });
       }
     } catch (error) {
+      swal({
+        title: "Login failed",
+        text: "Please try again",
+        icon: "error",
+        customClass: {
+          container: 'custom-swal-container',
+          title: 'custom-swal-title',
+          content: 'custom-swal-content',
+          confirmButton: 'custom-swal-button',
+        },
+      });
       console.error(error);
     }
   };

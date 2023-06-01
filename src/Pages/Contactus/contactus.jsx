@@ -2,6 +2,8 @@ import "../Contactus/contactus.css";
 import axios from "axios";
 import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ContactUs = () => {
   const form = useRef();
@@ -56,6 +58,9 @@ const ContactUs = () => {
         mail: "",
         Message: "",
       });
+      toast.success("Successfully sent", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     } catch (err) {
       console.log("error", err.response.data);
     }
@@ -63,6 +68,7 @@ const ContactUs = () => {
 
   return (
     <>
+     <ToastContainer />
       <div className="contact-us">
         <div className="primary">
           <h1>Connect with us!</h1>
