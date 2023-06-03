@@ -112,6 +112,7 @@
   font-weight: bold;
   font-size: 20px;
   white-space: nowrap;
+  font-family: cursive;
 }
 
 .res-input {
@@ -164,6 +165,7 @@
   width: 178%;
   font-weight: bold;
   font-size: 20px;
+  font-family: cursive;
 }
 .res-input-details {
   height: 70px;
