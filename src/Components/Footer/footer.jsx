@@ -72,7 +72,7 @@ function Footer() {
         </section>
       </main>
       <p className="copyright">
-        Copyright © 2023 Fleur de vie All rights reserved
+        Copyright © 2023 Fleur de vie All rights reserved || Assala Ismail
       </p>
     </footer>
   );
