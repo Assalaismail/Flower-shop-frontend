@@ -1,9 +1,21 @@
 import React, { useState, useEffect, useCallback, useReducer } from "react";
 import axios from "axios";
 import "../reservations/reservations.css";
+import { useNavigate } from "react-router";
 
 function Users() {
   const [user, setUser] = useState([]);
+  const navigate = useNavigate();
+
+
+  const userRole = sessionStorage.getItem("userType");
+
+  console.log(userRole === "user")
+  useEffect(() => {
+    if(!sessionStorage.getItem("token") || userRole == "user")
+    navigate("/login");
+  }, [])
+
 
   const getusers = async () => {
     try {
