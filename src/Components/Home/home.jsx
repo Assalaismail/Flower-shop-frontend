@@ -11,6 +11,7 @@ import aboutus from "../../Assets/sura (3).png";
 
 function Home() {
   const [slideIndex, setSlideIndex] = useState(1);
+  const [showMenu, setShowMenu] = useState(false);
 
   const showSlides = useCallback(
     (n) => {
@@ -60,6 +61,11 @@ function Home() {
     setSlideIndex(n);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+    setShowMenu(false)
+  };
+
   return (
     <div>
       <div className="slideshow-container">
@@ -84,7 +90,7 @@ function Home() {
             our daily flowers menu & <br></br>place your order for a Beirut
             flower delivery or studio pick up!
           </p>
-          <Link to="/shop" className="black-button" style={{ color: 'black' }}>
+          <Link to="/shop" className="black-button" style={{ color: 'black' }} onClick={scrollToTop}>
             <button className="daily-button">Order here!</button>
           </Link>
         </div>
@@ -108,7 +114,7 @@ function Home() {
           From budgeting to booking to breaking down, we're here to work with
           you every step of the way.
         </p>
-        <Link to="/reservation" className="black-button" >
+        <Link to="/reservation" className="black-button" onClick={scrollToTop}>
           <button className="event-button">Book your event!</button>
         </Link>
       </div>
@@ -126,7 +132,7 @@ function Home() {
             special milestone, expressing gratitude, or simply brightening up
             your own space, our expert florists are here to help.
           </p>
-          <Link to="/aboutus" className="black-button">
+          <Link to="/aboutus" className="black-button" onClick={scrollToTop}>
             <button className="read-more-button">Read More</button>
           </Link>
         </div>

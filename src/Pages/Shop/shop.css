@@ -54,7 +54,8 @@
   align-items: center;
   justify-content: center;
   width: 300px;
-  height: 400px;
+  height: 420px;
+  gap: 6px;
 }
 
 .back {
@@ -96,6 +97,10 @@
   min-height: 54px; /* Added property */
 }
 
+.content-product h3{
+  min-height: 54px;
+}
+
 .price {
   margin-top: 10px;
   text-align: center;
@@ -119,7 +124,7 @@
 }
 
 .button-card {
-  margin-top: 20px;
+  margin-top: auto;
   display: flex;
   justify-content: center;
 }

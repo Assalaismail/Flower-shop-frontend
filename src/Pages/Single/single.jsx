@@ -10,6 +10,7 @@ function Single() {
   const [item, setItem] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
+  const [showMenu, setShowMenu] = useState(false);
 
   const [canorder, setcanorder] = useState(true);
 
@@ -25,6 +26,11 @@ function checkUserRole() {
     setcanorder(true);
   }
 }
+
+const scrollToTop = () => {
+  window.scrollTo(0, 0);
+  setShowMenu(false)
+};
 
 useEffect(() => {
   checkUserRole();

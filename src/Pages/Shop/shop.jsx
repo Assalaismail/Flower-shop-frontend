@@ -12,6 +12,8 @@ function Shop(props) {
   const { categoryId } = props;
   const navigate = useNavigate();
   const [item, setItem] = useState(null);
+  const [showMenu, setShowMenu] = useState(false);
+
 
   const getProducts = useCallback(async () => {
     try {
@@ -36,7 +38,10 @@ function Shop(props) {
     getProducts();
   }, [getProducts]);
 
-
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+    setShowMenu(false)
+  };
 
   const saveToLocalStorage = () => {
     // Get the existing cart items from local storage
@@ -103,8 +108,8 @@ function Shop(props) {
                   )}
                 </div>
 
-                <div className="button-card">
-                  <button onClick={() => navigate(`/single/${item._id}`)}>
+                <div className="button-card" onClick={scrollToTop} >
+                  <button onClick={() => navigate(`/single/${item._id}`)} >
                     Details
                   </button>
 
