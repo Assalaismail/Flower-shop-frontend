@@ -34,7 +34,6 @@ function Home() {
       if (slides[slideIndex - 1]) {
         // add check to ensure slides[slideIndex - 1] is defined
         slides[slideIndex - 1].style.display = "block";
-        slides[slideIndex - 1].style.zIndex = 3;
 
       }
       if (dots[slideIndex - 1]) {
@@ -85,7 +84,7 @@ function Home() {
             our daily flowers menu & <br></br>place your order for a Beirut
             flower delivery or studio pick up!
           </p>
-          <Link to="/shop">
+          <Link to="/shop" className="black-button">
             <button className="daily-button">Order here!</button>
           </Link>
         </div>
@@ -109,7 +108,7 @@ function Home() {
           From budgeting to booking to breaking down, we're here to work with
           you every step of the way.
         </p>
-        <Link to="/reservation">
+        <Link to="/reservation" className="black-button" >
           <button className="event-button">Book your event!</button>
         </Link>
       </div>
@@ -127,7 +126,7 @@ function Home() {
             special milestone, expressing gratitude, or simply brightening up
             your own space, our expert florists are here to help.
           </p>
-          <Link to="/aboutus">
+          <Link to="/aboutus" className="black-button">
             <button className="read-more-button">Read More</button>
           </Link>
         </div>

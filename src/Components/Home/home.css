@@ -75,7 +75,19 @@
   padding: 10px 20px;
   border: 2px solid lightpink;
   /* box-shadow: 3px 3px grey; */
-  list-style: none;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.black-button,
+.black-button:link,
+.black-button:visited {
+  color: black;
+}
+
+.black-button {
+  display: inline-block;
+  text-decoration: none;
 }
 .daily-button:active {
   box-shadow: none;
