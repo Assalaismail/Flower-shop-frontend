@@ -95,6 +95,7 @@ footer {
   }
   ul li {
     list-style: none;
+    white-space: pre
   }
   a {
     text-decoration: none;
