@@ -264,6 +264,10 @@
   .totalprice-form {
     font-size: 1rem;
   }
+
+  .orderDelete{
+    color: black;
+  }
 }
 
 /* tablets */
@@ -368,5 +372,9 @@
 
   .totalprice-form{
     font-size: 27px;
+  }
+
+  .orderDelete{
+    color: black;
   }
 }
