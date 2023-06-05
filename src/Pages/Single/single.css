@@ -32,13 +32,6 @@
 
 
 
-
-
-
-
-
-
-
 @media all and (min-width:701px){
     .single-item{
       display: grid;
@@ -60,6 +53,9 @@
   
   }
   
+  .s-btn{
+    color: black;
+  }
   .s-left img {
     width: 70%;
     margin: 0 auto;
@@ -205,6 +201,9 @@
     .continueshopping{
       background-color: red;
     }
+    .s-btn{
+      color: black;
+    }
   }
   
   @media all and (max-width:700px){
@@ -228,6 +227,9 @@
       position: static;
       transform: none;
       filter: drop-shadow(0px 12px 16px rgba(0, 0, 0, 0.45));
+    }
+    .s-btn{
+      color: black;
     }
   }
   
@@ -270,5 +272,9 @@
     .pick-up {
       margin-left: 0;
       margin-right: 0;
+    }
+
+    .s-btn{
+      color: black;
     }
   }
