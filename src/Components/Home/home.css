@@ -14,13 +14,13 @@
   /* top: 0; */
 }
 
-.fade{
+.fade {
   position: absolute;
   top: 0;
   z-index: 3;
 }
 
-.fade.active{
+.fade.active {
   z-index: 6;
 }
 .slideshow-container ul {
@@ -185,7 +185,6 @@
 .about-us-image {
   margin-left: 0;
   text-align: center;
-
 }
 
 .home-about-us img {
@@ -223,14 +222,12 @@
   transform: translate(3px, 3px);
 }
 
-
 /* Responsive */
 @media (min-width: 768px) and (max-width: 991px) {
-  
   .home-about-us {
     /* grid-template-columns: 1fr 1fr; */
-   display: flex;
-   flex-direction: column;
+    display: flex;
+    flex-direction: column;
     text-align: left;
     gap: 20px;
     align-items: center;
@@ -247,13 +244,11 @@
     max-width: 100%;
     text-align: center;
     margin-right: 40px;
-
   }
 
   .home-about-us button {
     font-size: 20px;
     padding: 15px;
-   
   }
   .about-us-content {
     margin-left: 0%;
@@ -261,14 +256,16 @@
   }
 
   .black-button,
-.black-button:link,
-.black-button:visited {
-  color: black !important;
-  -webkit-text-decoration-color: black;
-  text-decoration-color: black;
-}
+  .black-button:link,
+  .black-button:visited {
+    color: black !important;
+    -webkit-text-decoration-color: black;
+    text-decoration-color: black;
+  }
 
-  
+  .read-more-button {
+    color: black;
+  }
 }
 
 @media (max-width: 767px) {
@@ -286,6 +283,14 @@
     padding: 10px 15px;
     color: black;
   }
+
+  .event-button {
+    color: black;
+  }
+
+  .read-more-button {
+    color: black;
+  }
   .imgg {
     /* height: 45vh; */
     object-fit: cover;
@@ -293,15 +298,14 @@
   }
 
   .black-button,
-.black-button:link,
-.black-button:visited {
-  color: black !important;
-  -webkit-text-decoration-color: black;
-  text-decoration-color: black;
-}
+  .black-button:link,
+  .black-button:visited {
+    color: black !important;
+    -webkit-text-decoration-color: black;
+    text-decoration-color: black;
+  }
 }
 @media (max-width: 576px) {
-
   .imgg {
     /* height: 35vh; */
     /* min-height: 35vh; */
@@ -340,12 +344,12 @@
   }
 
   .black-button,
-.black-button:link,
-.black-button:visited {
-  color: black !important;
-  -webkit-text-decoration-color: black;
-  text-decoration-color: black;
-}
+  .black-button:link,
+  .black-button:visited {
+    color: black !important;
+    -webkit-text-decoration-color: black;
+    text-decoration-color: black;
+  }
 
   .round-image1 {
     width: 55%;
@@ -394,5 +398,13 @@
   .home-about-us button {
     font-size: 20px;
     margin-left: 7px;
+  }
+
+  .event-button {
+    color: black;
+  }
+
+  .read-more-button {
+    color: black;
   }
 }
