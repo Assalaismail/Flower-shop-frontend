@@ -267,6 +267,9 @@
     flex-wrap: wrap;
   }
 
+  .res-button{
+    color: black;
+  }
   .res-book1,
   .res-book2,
   .res-book3 {
@@ -434,5 +437,9 @@
 
   .details {
     margin-left: 8px;
+  }
+
+  .res-button{
+    color: black;
   }
 }
