@@ -82,7 +82,9 @@
 .black-button,
 .black-button:link,
 .black-button:visited {
-  color: black;
+  color: black !important;
+  -webkit-text-decoration-color: black;
+  text-decoration-color: black;
 }
 
 .black-button {
