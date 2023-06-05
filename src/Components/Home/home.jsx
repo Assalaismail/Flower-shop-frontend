@@ -84,7 +84,7 @@ function Home() {
             our daily flowers menu & <br></br>place your order for a Beirut
             flower delivery or studio pick up!
           </p>
-          <Link to="/shop" className="black-button">
+          <Link to="/shop" className="black-button" style={{ color: 'black' }}>
             <button className="daily-button">Order here!</button>
           </Link>
         </div>
