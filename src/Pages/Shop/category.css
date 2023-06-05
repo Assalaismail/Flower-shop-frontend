@@ -62,7 +62,9 @@
 
   .category-button {
     margin-right: 10px;
+    color: black;
   }
+
 }
 @media screen and (max-width: 768px) {
   .category-container {
@@ -82,6 +84,7 @@
 
   .category-button {
     margin-right: 10px;
+    color: black;
   }
 }
 
@@ -92,6 +95,7 @@
 
   .category-button {
     font-size: 14px;
+    color: black;
   }
 }
 /* New media query for screens larger than 1024px */
@@ -113,5 +117,6 @@
   .category-button {
     margin-right: 0;
     margin-bottom: 10px;
+    color: black;
   }
 }
