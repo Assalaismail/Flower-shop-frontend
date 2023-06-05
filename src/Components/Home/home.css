@@ -75,6 +75,7 @@
   padding: 10px 20px;
   border: 2px solid lightpink;
   /* box-shadow: 3px 3px grey; */
+  list-style: none;
 }
 .daily-button:active {
   box-shadow: none;
